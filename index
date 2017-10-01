@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" class="cufon-active cufon-ready"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name=viewport content="width=wdevice-width, initial-scale=0.4">
+  <title> Paul Bourgade's home page</title>
+  <link rel="stylesheet" href="./css/main.css" type="text/css" media="screen">
+<style type="text/css">.cufon-canvas{text-indent:0!important;}@media screen,projection{.cufon-canvas{display:inline!important;display:inline-block!important;position:relative!important;vertical-align:middle!important;font-size:1px!important;line-height:1px!important;}.cufon-canvas .cufon-alt{display:-moz-inline-box!important;display:inline-block!important;width:0!important;height:0!important;overflow:hidden!important;text-indent:-10000in!important;}.cufon-canvas canvas{position:relative!important;}}@media print{.cufon-canvas{padding:0!important;}.cufon-canvas canvas{display:none!important;}.cufon-canvas .cufon-alt{display:inline!important;}}</style>
+
+<style>
+p {
+  margin-top: 0em;
+  margin-bottom: 1.5em;
+}
+</style>
+
+
+
+<body>
+<br><br><br>
+<p>
+<font size="4">A&thinsp;U&thinsp;B&thinsp;R&thinsp;E&thinsp;Y&nbsp;&nbsp;&nbsp;
+
+C&thinsp;L&thinsp;A&thinsp;R&thinsp;K&nbsp;</font>
+
+
+
+
+<a href="https://cims.nyu.edu">
+<img border="0" alt="Harvard" src="courant.jpg" width="200" style="border: 0;", align="right">
+
+</p>
+
+
+</a>
+
+
+<br>
+
+<p> 
+
+My research interests lie in economic theory and neuroscience.
+</p>
+
+
+
+
+
+<table cellpadding="4">
+<tbody>
+
+
+
+
+
+<tr valign="top">
+<td>
+<table cellpadding="2">
+<tbody><tr>
+<td width="210"><b>Teaching</b></td>
+</tbody></table>
+</td>
+
+<td>
+<table cellpadding="2">
+<tbody>
+    <tr>
+<td>Fall 2017</td><td><a href="./SA2017/SA2017.html">Stochastic Analysis</a></td>
+</tr>
+    <tr>
+<td width="100">Spring 2017</td><td><a href="./P2017/P2017.html">Undergraduate Probability</a></td>
+</tr>
+  <tr>
+<td>Fall 2016</td><td><a href="./SA2016/SA2016.html">Stochastic Analysis</a></td>
+</tr>
+<tr>
+<td>Fall 2015</td><td><a href="./P2015/P2015.html">Graduate Probability</a></td>
+</tr>
+<tr>
+<td>Spring 2015</td><td><a href="./RMT2015/RMT2015.html">Random Matrix Theory</a></td>
+</tr>
+<tr>
+<td>Fall 2014</td><td><a href="./P2014/P2014.html">Graduate Probability</a></td>
+</tr>
+<tr>
+<td>Spring 2013</td><td><a href="./AN2013/AN2013.html">Analytic Number Theory</a></td>
+</tr>
+<tr>
+<td>Fall 2012</td><td><a href="./RMT2012/RMT2012.htm">Random Matrices and Number Theory</a></td>
+</tr>
+<tr>
+<td>Spring 2012</td><td><a href="./P2012/P2012.html">Graduate Probability</a></td>
+</tr>
+<tr>
+<td>Fall 2011</td><td><a href="./DS2011/DS2011.html">Dynamical Systems</a></td>
+</tr>
+<tr>
+<td>Spring 2011</td><td><a href="./AC2011/AC2011.html">Algebraic Combinatorics</a></td>
+</tr>
+<tr>
+<td>Fall 2010</td><td><a href="./SA2010/SA2010.html">Stochastic Analysis</a></td>
+</tr>
+</tbody></table>
+</td>
+
+
+
+<tr valign="top">
+<td>
+<table cellpadding="4">
+<tbody><tr>
+<td width="210"><b>Research</b></td>
+</tbody></table>
+</td>
+
+<td>
+<table cellpadding="3">
+<tbody>
+
+
+
+
+
+<tr>
+<td> <a href="./papers/LocalMaxZeta.pdf"><em>
+Maximum of the Riemann zeta function on a short interval of the critical line</em></a>,
+with <a href="https://arguin.commons.gc.cuny.edu">L. P. Arguin</a>, <a href="http://user.math.uzh.ch/belius/">D. Belius</a>, <a href="http://www.math.mcgill.ca/radziwill/">M. Radziwill</a> and
+<a href="http://math.stanford.edu/~ksound/">K. Soundararajan</a>, prepublication, 2016.</td>
+</tr>
+
+<tr>
+<td> <a href="./papers/EigenvectorSparse.pdf"><em>
+Eigenvector Statistics of Sparse Random Matrices</em></a>,
+with <a href="http://abel.harvard.edu/people/HuangJiaoyang.html">J. Huang</a> and <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a>, to appear in Electronic Journal of Probability, 2016.</td>
+</tr>
+
+
+
+<tr>
+<td> <a href="./papers/CLTBeta.pdf"><em>
+The two-dimensional Coulomb plasma: quasi-free approximation and central limit theorem</em></a>,
+with <a href="http://www.statslab.cam.ac.uk/~rb812/">R. Bauerschmidt</a>, <a href="http://cmsa.fas.harvard.edu/post-docs/">M. Nikula</a> and <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a>, prepublication, 2016.</td>
+</tr>
+
+
+
+
+
+<tr>
+<td> <a href="./papers/BandMatrix.pdf"><em>
+Universality for a class of random band matrices</em></a>,
+with <a href="https://ist.ac.at/research/research-groups/erdoes-group/">L. Erd&#337;s</a>, <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a> and <a href="https://www.math.wisc.edu/~jyin/jun-yin.html">J. Yin</a>, to appear in Advances in Theoretical and Mathematical Physics, 2016.</td>
+</tr>
+
+
+
+<tr>
+<td> <a href="./papers/ABB.pdf"><em>
+Maximum of the characteristic polynomial of random unitary matrices</em></a>,
+with <a href="https://arguin.commons.gc.cuny.edu">L. P. Arguin</a> and <a href="http://user.math.uzh.ch/belius/">D. Belius</a>, Communications in Mathematical Physics, vol. 349, no. 2, 703-751, 2017.</td>
+</tr>
+
+<tr>
+<td> <a href="./papers/coulomb.pdf"><em>
+Local density for two-dimensional one-component plasma</em></a>,
+with <a href="http://www.statslab.cam.ac.uk/~rb812/">R. Bauerschmidt</a>, <a href="http://cmsa.fas.harvard.edu/post-docs/">M. Nikula</a> and <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a>, to appear in Communications in Mathematical Physics, 2015.</td>
+</tr>
+
+<tr>
+<td> <a href="./papers/WignerDysonMehta.pdf"><em>
+Fixed energy universality for generalized Wigner matrices</em></a>,
+with <a href="https://ist.ac.at/research/research-groups/erdoes-group/">L. Erd&#337;s</a>, <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a> and <a href="https://www.math.wisc.edu/~jyin/jun-yin.html">J. Yin</a>, 
+Communications on Pure and Applied Mathematics, vol. 69, no. 10, 1815-1881, 2016.</td>
+</tr>
+
+
+<tr>
+<td> <a href="./papers/EMF.pdf"><em>The eigenvector moment flow and local quantum unique ergodicity</em></a>,
+with  <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a>, Communications in Mathematical Physics, vol. 150, no. 1, 231-278 2017.</td>
+</tr>
+
+<tr>
+<td> <a href="./papers/BetaEdge.pdf"><em>Edge Universality of &#946;-ensembles</em></a>,
+with  <a href="https://ist.ac.at/research/research-groups/erdoes-group/">L. Erd&#337;s</a> and <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a>, Communications in Mathematical Physics, vol. 332, no. 1, 261-353, 2014.</td>
+</tr>
+
+<tr>
+<td> <a href="./papers/CircularEdge.pdf"><em>The local circular law II: the edge case</em></a>, with <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a> and <a href="https://www.math.wisc.edu/~jyin/jun-yin.html">J. Yin</a>, Probability Theory and Related Fields, vol. 159, no. 3-4, 619-660, 2014.</td>
+</tr>
+
+<tr>
+<td><a href="./papers/CircularBulk.pdf"><em>The local circular law for random matrices</em></a>, with <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a> and <a href="https://www.math.wisc.edu/~jyin/jun-yin.html">J. Yin</a>, Probability Theory and Related Fields, vol. 159, no. 3-4, 545-595, 2014.</td>
+</tr>
+
+<tr>
+<td><a href="./papers/StrongSzegoLFunctions.pdf"><em> Strong Szeg&#337; asymptotics and zeros of the &#950;&nbsp; function</em></a>, with <a href="http://www.math.columbia.edu/~kuan/">J. Kuan</a>,
+Communications on Pure and Applied Mathematics, vol. 67, mo. 6, 1028–1044, 2014.</td>
+</tr>
+
+
+
+<tr>
+<td><a href="./papers/betaII.pdf"><em>Bulk universality of general &#946;-ensembles with non-convex potential</em></a>,
+with  <a href="https://ist.ac.at/research/research-groups/erdoes-group/">L. Erd&#337;s</a> and <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a>, J. of Math. Phys., special issue in honor of E. Lieb's 80th birthday, vol. 53, 2012.</td>
+</tr>
+
+<tr>
+<td><a href="./papers/beta.pdf"><em> Universality of general &#946;-ensembles  </em></a>,
+with <a href="https://ist.ac.at/research/research-groups/erdoes-group/">L. Erd&#337;s</a> and <a href="http://www.math.harvard.edu/~htyau/">H.-T. Yau</a>, Duke Mathematical Journal vol. 163, no. 6, 1127-1190, 2014.</td>
+</tr>
+
+<tr>
+<td><a href="./papers/ExtremeGaps.pdf"><em> Extreme gaps in the eigenvalues of random matrices </em></a>,
+with <a href="http://www.cims.nyu.edu/~benarous/">G. Ben Arous</a>, Annals of Probability, vol. 41, no. 4, 2648-2681, 2013.</td>
+</tr>
+
+
+
+<tr>
+<td><a href="./papers/virtualIsometry.pdf"><em> A unitary extension of virtual permutations</em></a>, with 
+  <a href="http://www.artsci.uc.edu/departments/math/fac_staff.html?eid=najnudjh&thecomp=uceprof">J. Najnudel</a> and
+<a href="https://www.math.uzh.ch/nikeghbali/">A. Nikeghbali</a>, Int. Math. Research Notices vol. 2013, no. 18, 4101–4134, 2013.</td>
+</tr>
+
+
+
+
+<tr>
+<td><a href="./papers/PTRF2010.pdf"><em>  Mesoscopic fluctuations of the &#950; zeros</em></a>,
+Probability Theory and Related Fields, Volume 148, Numbers 3-4, 479-500, 2010.</td>
+</tr>
+
+
+<tr>
+<td><a href="./papers/IMRN2009.pdf"><em>Circular Jacobi ensembles and deformed Verblunsky coefficients</em></a>,
+with <a href="https://www.math.uzh.ch/nikeghbali/">A. Nikeghbali</a> and <a href="http://rouault.perso.math.cnrs.fr">A. Rouault</a>, International  Mathematical Research Notices, Vol. 2009, no. 23, 4357-4394.</td>
+</tr>
+
+
+
+
+<tr>
+<td><a href="./papers/AnProb2009.pdf"><em>Conditional Haar measures on classical compact groups</em></a>,     Annals of Probability vol 37, no. 4, 1566-1586, 2009.</td>
+</tr>
+
+<tr>
+<td><a href="./papers/SemProb.pdf"><em>Ewens measures on compact groups and hypergeometric kernels</em></a>,
+with <a href="https://www.math.uzh.ch/nikeghbali/">A. Nikeghbali</a> and <a href="http://rouault.perso.math.cnrs.fr">A. Rouault</a>,
+Séminaire de Probabilités XLIII, 351-377, Springer, 2011.</td>
+</tr>
+
+
+
+
+<tr>
+<td><a href=http://www.sciencedirect.com/science/article/pii/S1631073X07002749><em>The characteristic polynomial on compact groups with Haar measure: some equalities in law</em></a>,
+with <a href="https://www.math.uzh.ch/nikeghbali/">A. Nikeghbali</a> and <a href="http://rouault.perso.math.cnrs.fr">A. Rouault</a>,
+     Comptes Rendus de l'Ac. des Sc., 345, 4, 2007.</td>
+</tr>
+
+
+
+
+<tr>
+<td><a href=https://projecteuclid.org/euclid.ecp/1465224952><em>Euler's formula for &#950;(2n) and products of Cauchy variables</em></a>, with <a href="https://ir.c.chuo-u.ac.jp/researcher/profile/00015535.html">T. Fujita</a> and <a href="http://www.proba.jussieu.fr/pageperso/yor/">M. Yor</a>,
+     Electronic Communications in Probability 12, 73-80, 2007.
+</td>
+</tr>
+
+
+<tr>
+<td><a href="./papers/Duke2008.pdf"><em>The characteristic polynomial of a random unitary matrix: a probabilistic approach</em></a>,
+with <a href="http://www.york.ac.uk/maths/staff/chris-hughes/">C.P. Hughes</a>, <a href="https://www.math.uzh.ch/nikeghbali/">A. Nikeghbali</a> and <a href="http://www.proba.jussieu.fr/pageperso/yor/">M. Yor</a>,
+     Duke Math. Journal vol 145, no. 1, 45-69, 2008.</td>
+</tr>
+
+
+
+
+<tr>
+<td><a href=   ><em>    </em></a></td>
+</tr>
+
+
+</tbody></table>
+</td>
+
+
+
+
+<tr valign="top">
+<td>
+<table cellpadding="4">
+<tbody><tr>
+<td width="210"><b>Various texts</b></td>
+</tbody></table>
+</td>
+
+<td>
+<table cellpadding="3">
+<tbody>
+
+
+<tr>
+<td> <a href="./SA2010/StochasticAnalysis.pdf"><em>Stochastic Analysis</em></a>, lecture notes from my graduate course given in Fall 2010 at Harvard and Fall 2016 at Courant.</td>
+</tr>
+
+<tr>
+<td> <a href="./papers/MarcYor.pdf"><em>Marc Yor et les matrices aléatoires</em></a>,  numéro spécial de la Gazette des mathématiciens (in French, 2015).</td>
+</tr>
+
+
+<tr>
+<td><a href="./papers/PoincareSeminar.pdf" ><em>  Quantum chaos, random matrix theory, and the Riemann &#950;&nbsp; function </em></a>, with <a href="https://jpkeating.wordpress.com">J. Keating</a>,
+proceedings of the Séminaire Poincaré, Birkhauser, Chaos
+Progress in Mathematical Physics, vol. 66, 2013, 125-168, 2013.</td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+<td> <a href="./papers/ProceedingsICMP2012Bourgade.pdf"><em>Bulk universality for one-dimensional log-gases</em></a>, 
+proceedings of the XVIIth International Congress On Mathematical Physics, World Scientific Publishing, 2013.</td>
+</tr>
+
+
+<tr>
+<td><a href="./papers/TeaTime.pdf"><em> Tea time in Princeton</em></a>,
+an expository article about the analogies between the statistics
+of random eigenvalues and zeros of L-functions, Harvard College Math.
+Review (2012).</td>
+</tr>
+
+
+<tr>
+<td><a href="./papers/PhDThesis.pdf"><em>On random matrices and L-functions</em></a>, my Ph.D. thesis, under supervision of <a href="http://www.proba.jussieu.fr/pageperso/yor/">M. Yor</a> (this version: 2010).</td>
+</tr>
+
+<tr>
+<td><a href="./papers/MasterThesis.pdf"><em>Lois de Poisson-Dirichlet</em></a>,
+my senior thesis, about the occurrences of this measure for excursions and the distribution of large prime factors (in French, 2007).</td>
+</tr>
+
+
+<tr>
+<td><a href="http://www.amazon.fr/Annales-olympiades-internationales-math%C3%83%C2%A9matiques-1976-2005/dp/2842250877"><em>Annales des Olympiades internationnales de mathématiques</em></a>, published by the
+<a href="http://www.cassini.fr">éditions Cassini</a> (in French, 2005). </td>
+</tr>
+
+
+</tbody></table>
+</td>
+
+
+
+
+
+
+
+
+
+
+<tr valign="top">
+<td>
+<table cellpadding="4">
+<tbody><tr>
+<td width="105">   <b>Conferences<br> Seminars</b></td>
+</tbody></table>
+</td>
+
+<td>
+<table cellpadding="2">
+<tbody>
+
+
+<tr>
+<td> The NYU <a href="http://math.nyu.edu/seminars/probability/seminar.html">Probability and Mathematical Physics Seminar.</a></td>
+</tr>
+
+<tr>
+<td> <a href="  http://cims.nyu.edu/conferences/gba60/"><em>Dynamics, aging and universality in complex systems</em></a>, a conference
+in honor of <a href="http://www.cims.nyu.edu/~benarous/">G. Ben Arous</a> for his 60th birthday (2017).</td>
+</tr>
+
+
+<tr>
+<td> <a href="http://math.nyu.edu/seminars/probability/ColumbiaCourant2015.html">Columbia/Courant probability seminar series</a> 
+  (<a href="http://math.nyu.edu/seminars/probability/ColumbiaCourant2014.html">Fall 2014</a>, 
+  <a href="http://www.math.columbia.edu/department/probability/JointSeminar/CC15.html">Spring 2015</a>, 
+  <a href="http://math.nyu.edu/seminars/probability/ColumbiaCourant2015.html">Fall 2015</a>,
+<a href="http://www.math.columbia.edu/department/probability/JointSeminar/CC16.html">Spring 2016</a>, 
+  <a href="http://math.nyu.edu/seminars/probability/ColumbiaCourant2016.html">Fall 2016</a>,
+   <a href="http://www.math.columbia.edu/department/probability/JointSeminar/CC17.html">Spring 2017</a>).</td>
+</tr>
+
+<tr>
+<td> The  <a href="http://www.math.csi.cuny.edu/probability/NortheastProbabilitySeminar/">Northeast probability seminar.</a></td>
+</tr>
+
+
+<tr>
+<td> The Harvard <a href="./Seminar/Seminar.html">Probability Seminar.</a></td>
+</tr>
+
+<tr>
+<td> <a href="./RM2013/RM2013.html">Random Matrices, Random Geometry</a>, a joint Harvard-MIT probability afternoon.</td>
+</tr>
+
+
+<tr>
+<td> The <a href="http://cds.cern.ch/record/1488457?ln=sk"><em> conference</em></a>
+in honor of <a href="http://www.fen.bilkent.edu.tr/~cvmath/faculty.html">A.S. Üstünel</a>  for his 60th birthday.</td>
+</tr>
+
+
+
+
+<tr>
+<td>The <a href="./RM2009/RM2009.html"><em>Random Matrices conference</em></a>, at Institut Henri Poincaré.
+</td>
+</tr>
+
+
+
+<tr>
+<td> The <a href="./SeminaireIHP/SeminaireIHP.html"><em>Stochastic Analysis seminar</em></a>,
+ at Institut Henri Poincaré. </td>
+</tr>
+
+
+</tbody></table>
+</td>
+</tbody></table>
+
+
+
+<h2><span class="cufon cufon-canvas" style="width: 68px; height: 21px; "><canvas width="80" height="21" style="width: 80px; height: 21px; top: 0px; left: -1px; "></canvas><span class="cufon-alt">Contact</span></span></h2>
+<dl>
+  <dt> email </dt>
+  <dd> ab<i>REMOVETHISTEXT</i>clark@fas.<span>harvard.edu </dd>
+  <dt> address </dt>
+  <dd> 251 Mercer Street<br>
+       New York, NY 10012-1185, USA </dd>
+</dl>
+
+<br>
+
+ Here is my
+<a href="./cv/bourgade_cv.pdf">curriculum vitae</a>.
+</body>
+</html>
+
