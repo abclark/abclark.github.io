@@ -1,0 +1,33 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+
+\newcommand{\nc}{\newcommand}
+\nc{\bi}{\begin{itemize}}
+\nc{\ei}{\end{itemize}}
+\nc{\pt}{\item[---]}
+
+\begin{document}
+
+Desire delta $f(p)$ at stock price $p$. Suppose $f$ decreasing and $0$ at the initial price $\bar p$. 
+
+Take a sold put option on this stock with strike $x$. Let $g(p,x)$ denote the delta of this option. Likewise for a sold call option using $h(p,x)$ and suppose their deltas as at expiry.
+
+At each strike $x<\bar p$ sell $-f'(x)\Delta$ put options (where $\Delta$ is the distance between strikes), and at each strike $x>\bar p$ sell $-f'(x)\Delta$ call options. 
+
+At price $p<\bar p$ delta of portfolio is 
+\[
+\sum_{\{i: p \leq x_i \leq \bar p\}} -f'(x_i) \Delta g(p,x_i) = \sum_{\{i: p \leq x_i \leq \bar p\}} -f'(x_i) \Delta, 
+\]
+which converges as $\Delta$ goes to $0$ to $\int_p^{\bar p} -f'(t)dt = f(p)$.
+
+For price $p>\bar p$ 
+\[
+\sum_{\{i: \bar p \leq x_i \leq p\}} -f'(x_i) \Delta h(p,x_i) = \sum_{\{i:\bar p \leq x_i \leq p\}} f'(x_i) \Delta, 
+\]
+converges as $\Delta$ goes to $0$ to $\int_{\bar p}^p f'(t)dt = f(p)$.
+
+\bi
+\pt For continuous strikes portfolio consists of infinitesimal quantity of each option
+\ei
+
+\end{document}
