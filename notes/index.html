@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_SVG">
+</script>
+<head
+<html lang="en" class="cufon-active cufon-ready"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title> DAA</title>
+  <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen">
+<style type="text/css">.cufon-canvas{text-indent:0!important;}@media screen,projection{.cufon-canvas{display:inline!important;display:inline-block!important;position:relative!important;vertical-align:middle!important;font-size:1px!important;line-height:1px!important;}.cufon-canvas .cufon-alt{display:-moz-inline-box!important;display:inline-block!important;width:0!important;height:0!important;overflow:hidden!important;text-indent:-10000in!important;}.cufon-canvas canvas{position:relative!important;}}@media print{.cufon-canvas{padding:0!important;}.cufon-canvas canvas{display:none!important;}.cufon-canvas .cufon-alt{display:inline!important;}}</style>
+
+<style>
+p {
+  margin-top: 0em;
+  margin-bottom: 1.5em;
+}
+</style>
+
+
+<body>
+
+<br><br><br>
+<p>
+<BIG>
+O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;4&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>
+
+<p>
+
+Desire delta \(f(p)\) at stock price \(p\). Suppose \(f\) decreasing and \(0\) at the initial price \(\bar p\). 
+
+Take a sold put option on this stock with strike \(x\). Let \(g(p,x)\) denote the delta of this option. Likewise for a sold call option using \(h(p,x)\) and suppose their deltas as at expiry.
+
+At each strike \(x<\bar p\) sell \(-f'(x)\Delta\) put options (where \(\Delta\) is the distance between strikes), and at each strike \(x>\bar p\) sell \(-f'(x)\Delta\) call options. 
+
+At price \(p<\bar p\) delta of portfolio is
+    
+\[
+\sum_{\{i: p \leq x_i \leq \bar p\}} -f'(x_i) \Delta g(p,x_i) = \sum_{\{i: p \leq x_i \leq \bar p\}} -f'(x_i) \Delta, 
+\]
+  <br>  
+which converges as \(\Delta\) goes to \(0\) to \(\int_p^{\bar p} -f'(t)dt = f(p)\).
+
+For price \(p>\bar p\) 
+    
+\[
+\sum_{\{i: \bar p \leq x_i \leq p\}} -f'(x_i) \Delta h(p,x_i) = \sum_{\{i:\bar p \leq x_i \leq p\}} f'(x_i) \Delta, 
+\]
+  <br>  
+converges as \(\Delta\) goes to \(0\) to \(\int_{\bar p}^p f'(t)dt = f(p)\).
+
+For continuous strikes portfolio consists of infinitesimal quantity of each option.
+
+<p>
+  
+
+</ul>
+
+
+</body>
+
+</html>
