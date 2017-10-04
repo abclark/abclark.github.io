@@ -41,17 +41,21 @@ Take a sold put option on this stock with strike \(x\). Let \(g(p,x)\) denote th
 
 At each strike \(x<\bar p\) sell \(-f'(x)\Delta\) put options (where \(\Delta\) is the distance between strikes), and at each strike \(x>\bar p\) sell \(-f'(x)\Delta\) call options. 
 
-At price \(p<\bar p\) delta of portfolio is 
+At price \(p<\bar p\) delta of portfolio is
+    
 \[
 \sum_{\{i: p \leq x_i \leq \bar p\}} -f'(x_i) \Delta g(p,x_i) = \sum_{\{i: p \leq x_i \leq \bar p\}} -f'(x_i) \Delta, 
 \]
+    
 which converges as \(\Delta\) goes to \(0\) to \(\int_p^{\bar p} -f'(t)dt = f(p)\).
 
 For price \(p>\bar p\) 
+    
 \[
 \sum_{\{i: \bar p \leq x_i \leq p\}} -f'(x_i) \Delta h(p,x_i) = \sum_{\{i:\bar p \leq x_i \leq p\}} f'(x_i) \Delta, 
 \]
-converges as \)\Delta\) goes to \(0\) to \(\int_{\bar p}^p f'(t)dt = f(p)\).
+    
+converges as \(\Delta\) goes to \(0\) to \(\int_{\bar p}^p f'(t)dt = f(p)\).
 
 \begin{itemize}
 \item[---] For continuous strikes portfolio consists of infinitesimal quantity of each option
