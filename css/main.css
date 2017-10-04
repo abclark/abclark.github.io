@@ -5,7 +5,7 @@ p,ul,dl,h1,h2 {
     margin: 0;
 }
 
-.xlink {cursor:pointer}
+.xlink {cursor:none}
 
 body { 
     width: 700px;
