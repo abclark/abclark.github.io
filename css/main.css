@@ -17,7 +17,7 @@ body {
 }
 
 a       { color: #000; text-decoration: none; }
-a:hover { color: #384c84; }
+a:hover { color: #19195D; }
 
 ul {
     margin-bottom: 12px;
@@ -51,7 +51,7 @@ abbr {
 
 
 div { float: right; margin-left: 50px; }
-img { border: 1px solid #bbb; }
+img { border: none; }
 
 em,dt { font-style: italic; }
 
