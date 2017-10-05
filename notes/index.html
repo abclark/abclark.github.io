@@ -28,7 +28,7 @@ p {
 
 <p>
 <BIG>
-O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;5&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;6&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
 </p>
 
 <p>
@@ -86,7 +86,7 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;5&nbsp;t&nbsp;h&nbs
 
 <br>
 
-The mechanism we shall use is a generalized version of the <em>probabilistic serial mechanism</em>. Imagine that A, B, and C are actually cakes, each of size three. Individuals start eating their most preferred cake. Cake A is being eaten by 3, 6, 7, and 8, cake B by 1, 2, 5, and 9, and cake C by 4. After 3/4 cake-eating time units, cakes A and B are finished, and 4 has eaten 3/4 units of cake C. All individuals but 4 now move to their second most preferred cake. Many, finding it no longer available, immediatly move to cake C. After 1/4 time, cake C is finished.
+Imagine that A, B, and C are actually cakes, each of size three. Individuals start eating their most preferred cake. Cake A is being eaten by 3, 6, 7, and 8, cake B by 1, 2, 5, and 9, and cake C by 4. After 3/4 cake-eating time units, cakes A and B are finished, and 4 has eaten 3/4 units of cake C. All individuals but 4 now move to their second most preferred cake. Many, finding it no longer available, immediatly move to cake C. After 1/4 time, cake C is finished.
 <br>
 <br>
 Here, cake is an analogy for probability mass so each individual gets the following probabilities of being assigned to one of A, B, or C
@@ -147,9 +147,9 @@ Here, cake is an analogy for probability mass so each individual gets the follow
 <br>
 <br>
 
-Note that we can't simply run a lottery, one after the other, for each individual (in that case, everyone might be assigned to C), we have to run one big lottery simultaneously assigning everyone at once.
+Note that we can't simply run a sequence of lotteries, one for each individual, since, for example, everyone might be assigned to C. What we have to do is run one lottery that assigns everyone at once.
 
-In this case, this is easily done by randomly selecting two individuals to join 4 at C. Everyone else to gets their first choice. For example, if 8 and 9 were chosen then the allocation would be
+Fortunately, this is easily done by randomly selecting two individuals to join 4 at C. Everyone else gets their first choice. For example, if 8 and 9 were chosen then the allocation would be
 
 <br>
 <br>
@@ -209,6 +209,11 @@ In this case, this is easily done by randomly selecting two individuals to join 
 <br>
 
 By randomly selecting two people in this way we are actually randomly selecting one of 28 assignments (the number of ways to choose two individuals from eight), each chosen with probability 1/28.
+
+<br>
+<br>
+
+This procedure is a generalized version of what is known as the <em>probabilistic serial mechanism</em>.
 
 
 <p>
