@@ -25,6 +25,86 @@ p {
 
 <br><br><br>
 
+<p>
+<BIG>
+O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;7&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>
+
+<p>
+
+<pre>
+<code>
+import networkx as nx
+import numpy as np
+import copy
+
+G = nx.DiGraph()
+G.add_edge('S','s1',weight=1)
+G.add_edge('S','w1',weight=0.3)
+G.add_edge('S','w4',weight=0.7)
+G.add_edge('w1','w1p',weight=0.3)
+G.add_edge('w1p','Sp',weight=0.3)
+G.add_edge('s1','w2',weight=0.7)
+G.add_edge('s1','w3',weight=0.3)
+G.add_edge('w2','w2p',weight=0.7)
+G.add_edge('w2p','Sp',weight=0.7)
+G.add_edge('w3','w3p',weight=0.3)
+G.add_edge('w3p','s2',weight=0.3)
+G.add_edge('s2','Sp',weight=1)
+G.add_edge('w4','w4p',weight=0.7)
+G.add_edge('w4p','s2',weight=0.7)
+H = [(G,1)]
+
+def generalized_birkhoff_von_neumann_iterator(H):
+
+  tolerance = np.finfo(np.float).eps * 10
+
+  #start with a list H of graphs and their probabilities
+
+  (G, p) = H.pop(0)
+
+  #remove integer weighted edges
+
+  e = [(u,v) for (u,v,d) in G.edges(data=True) if d['weight'] < tolerance or d['weight'] > 1-tolerance]
+
+  G.remove_edges_from(e)
+
+  #if not find a cycle and compute the push_forward and push_reverse probabilities and graphs
+
+  cycle = nx.find_cycle(G, orientation='ignore')
+  forward_weights = [d['weight'] for (u,v,d) in G.edges(data=True) if (u,v,'forward') in cycle]
+  reverse_weights = [d['weight'] for (u,v,d) in G.edges(data=True) if (u,v,'reverse') in cycle]
+  push_forward = 1 - max(forward_weights)
+  push_reverse = 1-max(reverse_weights)
+  pull_forward = min(forward_weights)
+  push_forward_pull_reverse = min(push_forward,pull_reverse)
+  push_reverse_pull_forward = min(pull_forward,push_reverse)
+
+  #Construct the push_forward_pull_reverse graph
+
+  G1 = copy.deepcopy(G)
+  for u,v,d in G1.edges(data=True):
+    if (u,v,'forward') in cycle:
+      d['weight']+=push_forward_pull_reverse
+    if (u,v,'reverse') in cycle:
+      d['weight']+=-push_forward_pull_reverse
+      
+  #Construct the push_reverse_pull_forward graph
+
+  G2 = copy.deepcopy(G)
+  for u,v,d in G2.edges(data=True):
+    if (u,v,'reverse') in cycle:
+      d['weight']+=push_reverse_pull_forward
+    if (u,v,'forward') in cycle:
+      d['weight']+=-push_reverse_pull_forward
+
+  H.extend([(G1,p*push_forward_pull_reverse), (G2,p*push_reverse_pull_forward)])
+
+  return(H)
+</code>
+</pre>
+
+<p>
 
 <p>
 <BIG>
