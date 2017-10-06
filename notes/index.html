@@ -35,6 +35,11 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;7&nbsp;t&nbsp;h&nbs
 
 <p>
 
+One is given an expected assignment of objects to agents and a constraint structure specifying upper and lower bounds on the number of assignments per set of object-agent pairs. If the constraint structure is what <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a> define as a <em>bihierarchy</em> then there exists a distribution over constraint abiding assignments, and thus a way to feasibly implement the expected allocation. 
+<br>
+<br>
+The first step of this algorithm represents the expected assignment and constraint structure as a weighted directed graph. The second step then recursively invokes an algorithim on this graph, below implemented in python as <code>generalized_birkhoff_von_neumann_iterator()</code>, that decomposes expected assignments into pairs of expected assignments that are eventually themselves assignments.
+
 <font size="2">
 <pre>
 <code>
