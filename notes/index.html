@@ -42,6 +42,8 @@ import networkx as nx
 import numpy as np
 import copy
 
+#start with a list H of graphs and their probabilities
+
 G = nx.DiGraph()
 G.add_edge('S','s1',weight=1)
 G.add_edge('S','w1',weight=0.3)
@@ -62,18 +64,15 @@ H = [(G,1)]
 def generalized_birkhoff_von_neumann_iterator(H):
 
   tolerance = np.finfo(np.float).eps * 10
-
-  #start with a list H of graphs and their probabilities
-
+  
   (G, p) = H.pop(0)
 
   #remove integer weighted edges
 
   e = [(u,v) for (u,v,d) in G.edges(data=True) if d['weight'] < tolerance or d['weight'] > 1-tolerance]
-
   G.remove_edges_from(e)
 
-  #if not find a cycle and compute the push_forward and push_reverse probabilities and graphs
+  #find a cycle and compute the push_forward and push_reverse probabilities and graphs
 
   cycle = nx.find_cycle(G, orientation='ignore')
   forward_weights = [d['weight'] for (u,v,d) in G.edges(data=True) if (u,v,'forward') in cycle]
