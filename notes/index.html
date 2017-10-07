@@ -30,16 +30,74 @@ pre {
 
 <p>
 <BIG>
-O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;7&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;7&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
 </p>
 
 <p>
+Given an expected assignment and constraint structure, want to construct a weighted directed graph from a source to a sink, first passing through nodes that are sets of object-agent pairs belonging to one piece of the bihierarchy, ordered by set inclusion from largest to smallest, and eventually reaching all nodes that are single object-agent pairs. The next part of the graph is its central column which passes from each singleton object-agent pair across to a replica node. The weight on this edge is the object-agent coordinate of the expected assignment. The graph then passes into the other piece of the bihierarchy, now entering small sets of object-agent pairs and then into their supersets, until terminally reaching the sink node. The source node is represented by the set of possible object-agent pairs, and the sink as its replica. Conservation of flow determines the edge weights.
+<br>
+<br>
+First construct the central column
 
+<font size="2">
+<pre>
+<code>
+#implicitly use coordinates of X as labels for object-agent pairs
+
+#X is an np.array e.g. X = np.array([[1, 2], [3, 4]])
+
+D = nx.DiGraph()
+
+for index, x in np.ndenumerate(X):
+  D.add_edge(index, (index,'p'), weight=x)
+</code>
+</pre>
+</font>
+
+Now construct the two sides of the column from the constraint structure. Upper and lower bounds of the constraint structure wil be used to determine the dlows. For now we will work with only the subsets of object-agent pairs. Need to organize these subsets into a bihierarchy if possible. 
+<br>
+<br>
+Start with two directed graphs and the list of subsets
+
+<font size="2">
+<pre>
+<code>
+G1 = nx.DiGraph()
+G2 = nx.DiGraph()
+C
+
+#e.g. C = [{(0,0),(0,1),(1,1)}, {(0,1),(1,1)}, {(0,0),(1,0)}, {(0,0),(0,1),(1,0)}]
+</code>
+</pre>
+</font>
+
+Generate the full set of object-agent pairs
+
+<font size="2">
+<pre>
+<code>
+S = {index for index, x in np.ndenumerate(X)}
+</code>
+</pre>
+</font>
+
+I see two options for proceeding. One is to stop this approach and just work with <code>C</code>, iteratively dividing it into two pieces according to the rules of biheirarchy. Two is to order <code>C</code> by cardinality and to apply the same approach as one but try to construct the pieces of the directed graph in the process of seeing if the constraint structure is a bihierarchy.
+  
+<p>
+
+<p>
+<BIG>
+O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;6&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>  
+ 
+ <p> 
+  
 One is given an expected assignment of objects to agents and a constraint structure specifying upper and lower bounds on the number of assignments per set of object-agent pairs. If the constraint structure is what <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a> call a <em>bihierarchy</em> then there exists a distribution over constraint abiding assignments that gives the expected assignment.
 <br>
 <br>
 The first step of this algorithm represents the expected assignment and constraint structure as a weighted directed graph. The second step recursively invokes an algorithim on this graph, below implemented in python as <font size="2"><code>generalized_birkhoff_von_neumann_iterator()</code></font>, that decomposes expected assignments into pairs of expected assignments that are eventually pure assignments.
-
+ 
+  
 <font size="2">
 <pre>
 <code>
