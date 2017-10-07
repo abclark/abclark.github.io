@@ -85,6 +85,7 @@ def generalized_birkhoff_von_neumann_iterator(H):
   push_forward = 1 - max(forward_weights)
   push_reverse = 1-max(reverse_weights)
   pull_forward = min(forward_weights)
+  pull_reverse = min(reverse_weights)
   push_forward_pull_reverse = min(push_forward,pull_reverse)
   push_reverse_pull_forward = min(pull_forward,push_reverse)
 
