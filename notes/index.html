@@ -28,6 +28,49 @@ pre {
 
 <br><br><br>
 
+   
+<p>
+<BIG>
+O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;9&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>
+ 
+<p>
+
+This python code takes a list of sets and divides them into two groups. In the iteration we take a set from the list and test if it is subset to or disjoint from already collected sets <code>A</code>, and if so add it to <code>A</code>. Otherwise, we do the same test with already collected sets <code>B</code>. If the constraint set can't be added to either <code>A</code> or <code>B</code>, and if this test fails, 'stop' is printed. 
+
+<br>
+<br>
+
+This procedure will not always find a bihierarchy if one exists, the printing of 'stop' neither implies of is implied by the constraint structure being not bihierarchy. 
+
+<br>
+<br>
+
+My conjecture is that if the constraint sets are initially ordered so that the largest sets come first, then both these things will be true.
+
+<font size="2">
+<pre>
+<code>
+C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
+C.sort(key=len)
+C.reverse()
+A=[]
+B=[]
+
+for x in C:
+  if all(x.issubset(y) or y.issubset(x) or x.isdisjoint(y) for y in A):
+    A.append(x)  
+  elif all(x.issubset(z) or z.issubset(x) or x.isdisjoint(z) for z in B):
+    B.append(x)   
+  else:
+    print('stop')
+</code>
+</pre>
+</font>
+
+<p>
+ 
+ 
 <p>
 <BIG>
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;8&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
