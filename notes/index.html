@@ -36,17 +36,17 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;9&nbsp;t&nbsp;h&nbs
  
 <p>
 
-This python code takes a list of sets and divides them into two groups. In the iteration, we take a set from the list and test if it is subset to or disjoint from all already collected sets <code>A</code>, if so it is added to <code>A</code>, if not  we do the same test with the already collected sets <code>B</code>. If the constraint set can't be added to either <code>A</code> or <code>B</code>, 'stop' is printed. 
+This python code takes a list of sets and divides them into two groups. In the iteration, we take a set from the list and test if it is subset to or disjoint from all already collected sets <code>A</code>, if so it is added to <code>A</code>, if not  we do the same test with the already collected sets <code>B</code>. If the set can't be added to either <code>A</code> or <code>B</code>, 'stop' is printed. 
 
 <br>
 <br>
 
-If a bihierarchy exists, this procedure will not always find it, and the printing of 'stop' neither implies nor is implied by the constraint structure not being a bihierarchy. 
+If a bihierarchy exists, this procedure will not always find it, and the printing of 'stop' neither implies nor is implied by the constraint structure not being bihierarchy. 
 
 <br>
 <br>
 
-My conjecture is that if the constraint sets are initially ordered so that the largest sets come first, then both these things will be true.
+My conjecture is that if the constraint sets are initially ordered so that the largest sets come first, then both these things will become true.
 
 <font size="2">
 <pre>
