@@ -86,7 +86,7 @@ for x in S:
 G1 = nx.DiGraph()
 for x in A:
   for y in A:
-    if x<y and not any(x<z<y for z in A):
+    if x < y and not any(x < z < y for z in A):
       G1.add_edge(frozenset(y),frozenset(x))
 
 
