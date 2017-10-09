@@ -25,9 +25,91 @@ pre {
 
 
 <body>
-
+  
 <br><br><br>
 
+  
+<p>
+<BIG>
+O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;10&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>
+  <p>
+
+We now have the building blocks of python code to construct the directed weighted graph from an expected assignment and constraint structure.
+
+<br>
+<br>
+
+The followinng will find a bihierarchy if one exists
+
+<font size="2">
+<pre>
+<code>
+#takes the sets of a constraint structure and prints a bihierarchy if one exists
+
+C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
+#C.reverse()
+import itertools
+pc = itertools.permutations(C)
+
+for c in pc:
+  listofA, listofB = [], []
+  for idx, x in enumerate(c):
+    if all(x.issubset(y) or y.issubset(x) or x.isdisjoint(y) for y in [c[i] for i in listofA]):
+      target = listofA
+    elif all(x.issubset(z) or z.issubset(x) or x.isdisjoint(z) for z in [c[i] for i in listofB]):
+      target = listofB
+    else:
+       print('stop')
+       break
+    target.append(idx)
+  if len(listofA) + len(listofB) == len(c):
+    print("A is %s and B is  %s  " % ([c[i] for i in listofA], [c[i] for i in listofB]))
+    break
+</code>
+</pre>
+</font>
+
+Next we construct from the bihierarchy the two sides of the directed graph
+
+<font size="2">
+<pre>
+<code>
+#first add to each hierarchy the full set of object-agent pairs S and the singleton object-agent pairs
+
+A.append(S), B.append(S)
+for x in S:
+  A.append({x}), B.append({x})
+  
+#now construct each side of the directed graph
+  
+G1 = nx.DiGraph()
+for x in A:
+  for y in A:
+    if x<y and not any(x<z<y for z in A):
+      G1.add_edge(frozenset(y),frozenset(x))
+
+
+G2 = nx.DiGraph()
+for x in B:
+  for y in B:
+    if y < x and not any(y < z < x for z in A):
+      G2.add_edge((frozenset(y),'p'),(frozenset(x),'p'))
+
+#now connect each side by combining G1 and G1 and complete the central column of the graph, adding weights using the expected assignment X
+
+G = nx.compose(G1,G2)
+
+#now join the singleton object-agent edges and assign their weights
+#e.g. X = np.array([[1, 2], [3, 4]])
+
+for index, x in np.ndenumerate(X):
+  G.add_edge(frozenset({index}), (frozenset({index}),'p'), weight=x)
+</code>
+</pre>
+</font>
+
+The final step of constructing the graph is to use conservation of flow to fill in the remaining weights.
    
 <p>
 <BIG>
