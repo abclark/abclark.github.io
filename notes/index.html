@@ -33,9 +33,9 @@ pre {
 <BIG>
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;10&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
 </p>
-  <p>
+ <p>
 
-We now have the building blocks of python code to construct the directed weighted graph from an expected assignment and constraint structure.
+We now have the building blocks of python code to construct the directed graph from an expected assignment and constraint structure.
 
 <br>
 <br>
@@ -46,9 +46,8 @@ The followinng will find a bihierarchy if one exists
 <pre>
 <code>
 #takes the sets of a constraint structure and prints a bihierarchy if one exists
+#e.g. C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
 
-C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
-#C.reverse()
 import itertools
 pc = itertools.permutations(C)
 
@@ -81,7 +80,7 @@ A.append(S), B.append(S)
 for x in S:
   A.append({x}), B.append({x})
   
-#now construct each side of the directed graph
+#construct each side of the directed graph
   
 G1 = nx.DiGraph()
 for x in A:
@@ -89,14 +88,13 @@ for x in A:
     if x < y and not any(x < z < y for z in A):
       G1.add_edge(frozenset(y),frozenset(x))
 
-
 G2 = nx.DiGraph()
 for x in B:
   for y in B:
     if y < x and not any(y < z < x for z in A):
       G2.add_edge((frozenset(y),'p'),(frozenset(x),'p'))
 
-#now connect each side by combining G1 and G1 and complete the central column of the graph, adding weights using the expected assignment X
+#connect each side by combining G1 and G1 and construct the central column, adding weights using expected assignment X
 
 G = nx.compose(G1,G2)
 
@@ -109,9 +107,10 @@ for index, x in np.ndenumerate(X):
 </pre>
 </font>
 
-The final step of constructing the graph is to use conservation of flow to fill in the remaining weights.
-   
+The final step is to use conservation of flow to fill in the remaining weights.
+
 <p>
+  
 <BIG>
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;9&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
 </p>
