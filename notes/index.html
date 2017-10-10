@@ -91,7 +91,7 @@ for x in A:
 G2 = nx.DiGraph()
 for x in B:
   for y in B:
-    if y < x and not any(y < z < x for z in A):
+    if y < x and not any(y < z < x for z in B):
       G2.add_edge((frozenset(y),'p'),(frozenset(x),'p'))
 
 #connect each side by combining G1 and G1 and construct the central column, adding weights using expected assignment X
