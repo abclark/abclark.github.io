@@ -28,11 +28,114 @@ pre {
   
 <br><br><br>
 
+<p>
+<BIG>
+O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;10&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>
+
+<p>
+
+The constraint structure will be represented by a dictionary with the constraint sets, the set of all object-agent pairs, and all singleton object-agent sets along with a tuple of minimum and maximum number of allocations for this set. In the code below, <code>generalized_birkhoff_von_neumann_iterator()</code> needs to be modified so that <code>push_forward_pull_reverse</code> and <code>push_reverse_pull_forward</code> take into account the constraints.
+
+<pre><code>
+import itertools
+#takes the sets of a constraint structure and prints a bihierarchy if one exists
+#e.g. C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
+
+
+
+def bihierarchy_test(C):
+  permutations =  itertools.permutations(C)
+  for c in permutations:
+    listofA, listofB = [], []
+    for idx, x in enumerate(c):
+      if all( x < y or y < x or x.isdisjoint(y) for y in [c[i] for i in listofA]):
+        target = listofA
+      elif all(x < y or y < x or x.isdisjoint(y) for y in [c[i] for i in listofB]):
+        target = listofB
+      else:
+        break
+      target.append(idx)
+    if len(listofA) + len(listofB) == len(c):
+      return [[c[i] for i in listofA], [c[i] for i in listofB]]
+
+C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
+A,B = bihierarchy_test(C)
+S = {index for index, x in np.ndenumerate(X)}
+A.append(S), B.append(S)
+
+for x in S:
+  A.append({x}), B.append({x})
+
+
+
+G1 = nx.DiGraph()
+for x in A:
+  for y in A:
+    if x < y and not any(x < z < y for z in A):
+      G1.add_edge(frozenset(y),frozenset(x),weight=sum([X[i] for i in x]), min_capacity = constraint_structure[frozenset(x)][0], max_capacity = constraint_structure[frozenset(x)][1])
+      
+      G2 = nx.DiGraph()
+for x in B:
+  for y in B:
+    if y < x and not any(y < z < x for z in B):
+      G2.add_edge((frozenset(y),'p'),(frozenset(x),'p'),weight = sum( [X[i] for i in y]), min_capacity = constraint_structure[frozenset(y)][0], max_capacity = constraint_structure[frozenset(y)][1])
+
+G = nx.compose(G1,G2)
+
+for index, x in np.ndenumerate(X):
+  G.add_edge(frozenset({index}), (frozenset({index}),'p'), weight=x)
+
+import networkx as nx
+import numpy as np
+import copy
+
+def generalized_birkhoff_von_neumann_iterator(H):
+  tolerance = np.finfo(np.float).eps * 10
+  (G, p) = H.pop(0)
+  #remove integer weighted edges
+  e = [(u,v) for (u,v,d) in G.edges(data=True) if d['weight'] < tolerance or 1-tolerance< d['weight'] < 1+tolerance]
+  G.remove_edges_from(e)
+  #find a cycle and compute the push_forward and push_reverse probabilities and graphs
+  cycle = nx.find_cycle(G, orientation='ignore')
+  forward_weights = [d['weight'] for (u,v,d) in G.edges(data=True) if (u,v,'forward') in cycle]
+  reverse_weights = [d['weight'] for (u,v,d) in G.edges(data=True) if (u,v,'reverse') in cycle]
+  push_forward = 1 - max(forward_weights)
+  push_reverse = 1-max(reverse_weights)
+  pull_forward = min(forward_weights)
+  pull_reverse = min(reverse_weights)
+  push_forward_pull_reverse = min(push_forward,pull_reverse)
+  push_reverse_pull_forward = min(pull_forward,push_reverse)
+  #Construct the push_forward_pull_reverse graph
+  G1 = copy.deepcopy(G)
+  for u,v,d in G1.edges(data=True):
+   if (u,v,'forward') in cycle:
+      d['weight']+=push_forward_pull_reverse
+    if (u,v,'reverse') in cycle:
+      d['weight']+=-push_forward_pull_reverse
+  #Construct the push_reverse_pull_forward graph
+  G2 = copy.deepcopy(G)
+  for u,v,d in G2.edges(data=True):
+    if (u,v,'reverse') in cycle:
+      d['weight']+=push_reverse_pull_forward
+    if (u,v,'forward') in cycle:
+      d['weight']+=-push_reverse_pull_forward
+  H.extend([(G1,p*push_forward_pull_reverse), (G2,p*push_reverse_pull_forward)])
+  return(H)
+
+
+H=[(G,1)]
+generalized_birkhoff_von_neumann_iterator(H)   
+</code>
+</pre>
+
+<p>  
   
 <p>
 <BIG>
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;10&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
 </p>
+
  <p>
 
 We now have the building blocks of python code to construct the directed graph from an expected assignment and constraint structure.
