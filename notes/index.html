@@ -42,8 +42,6 @@ import itertools
 #takes the sets of a constraint structure and prints a bihierarchy if one exists
 #e.g. C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
 
-
-
 def bihierarchy_test(C):
   permutations =  itertools.permutations(C)
   for c in permutations:
@@ -66,8 +64,6 @@ A.append(S), B.append(S)
 
 for x in S:
   A.append({x}), B.append({x})
-
-
 
 G1 = nx.DiGraph()
 for x in A:
@@ -122,7 +118,6 @@ def generalized_birkhoff_von_neumann_iterator(H):
       d['weight']+=-push_reverse_pull_forward
   H.extend([(G1,p*push_forward_pull_reverse), (G2,p*push_reverse_pull_forward)])
   return(H)
-
 
 H=[(G,1)]
 generalized_birkhoff_von_neumann_iterator(H)   
