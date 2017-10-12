@@ -35,12 +35,26 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;11&nbsp;t&nbsp;h&nb
 
 <p>
 
-The constraint structure will be represented by a dictionary whose keys are the constraint sets, the set of all object-agent pairs, and all singleton object-agent pairs, and whose values will be the corresponding tuple of minimum and maximum allocations for the set. In the python code below, <code>generalized_birkhoff_von_neumann_iterator()</code> needs to be modified so that <code>push_forward_pull_reverse</code> and <code>push_reverse_pull_forward</code> take into account the constraints.
+The constraint structure will be represented by a dictionary whose keys are the constraint sets, the set of all object-agent pairs, and all singleton object-agent pairs, and whose values will be the corresponding tuple of minimum and maximum allocations for the set. In the python code below, <font size="2"><code>generalized_birkhoff_von_neumann_iterator()</code></font> needs to be modified so that <font size="2"><code>push_forward_pull_reverse</code></font> and <code>push_reverse_pull_forward</code></font> take into account the constraints.
 
+  <font size="2">
 <pre><code>
+import networkx as nx
+import numpy as np
+import copy
 import itertools
+
 #takes the sets of a constraint structure and prints a bihierarchy if one exists
-#e.g. C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
+
+S = {index for index, x in np.ndenumerate(X)}
+C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
+X = np.array([[.4, .6], [.7, .9]])
+constraint_structure_dict = {frozenset({(0, 1), (1, 1)}):(0,2), frozenset({(1, 0), (0, 0)}): (0,2), frozenset({(0, 1), (0, 0), (1, 1)}):(0,3), frozenset({(0, 1), (1, 0), (0, 0)}):(0,3)}
+
+#need to assign the min and max capacity attributes to every edge, except to and from whole set
+S = {index for index, x in np.ndenumerate(X)}
+for x in S:
+  constraint_structure_dict.update({frozenset({x}):(0,1)})
 
 def bihierarchy_test(C):
   permutations =  itertools.permutations(C)
@@ -50,16 +64,14 @@ def bihierarchy_test(C):
       if all( x < y or y < x or x.isdisjoint(y) for y in [c[i] for i in listofA]):
         target = listofA
       elif all(x < y or y < x or x.isdisjoint(y) for y in [c[i] for i in listofB]):
-        target = listofB
+        targe = listofB
       else:
         break
       target.append(idx)
     if len(listofA) + len(listofB) == len(c):
       return [[c[i] for i in listofA], [c[i] for i in listofB]]
 
-C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
 A,B = bihierarchy_test(C)
-S = {index for index, x in np.ndenumerate(X)}
 A.append(S), B.append(S)
 
 for x in S:
@@ -69,43 +81,41 @@ G1 = nx.DiGraph()
 for x in A:
   for y in A:
     if x < y and not any(x < z < y for z in A):
-      G1.add_edge(frozenset(y),frozenset(x),weight=sum([X[i] for i in x]), min_capacity = constraint_structure[frozenset(x)][0], max_capacity = constraint_structure[frozenset(x)][1])
-      
-      G2 = nx.DiGraph()
+      G1.add_edge(frozenset(y),frozenset(x),weight=sum([X[i] for i in x]), min_capacity = constraint_structure_dict[frozenset(x)][0], max_capacity = constraint_structure_dict[frozenset(x)][1])
+
+G2 = nx.DiGraph()
 for x in B:
   for y in B:
     if y < x and not any(y < z < x for z in B):
-      G2.add_edge((frozenset(y),'p'),(frozenset(x),'p'),weight = sum( [X[i] for i in y]), min_capacity = constraint_structure[frozenset(y)][0], max_capacity = constraint_structure[frozenset(y)][1])
+      G2.add_edge((frozenset(y),'p'),(frozenset(x),'p'),weight = sum( [X[i] for i in y]), min_capacity = constraint_structure_dict[frozenset(y)][0], max_capacity = constraint_structure_dict[frozenset(y)][1])
 
 G = nx.compose(G1,G2)
 
 for index, x in np.ndenumerate(X):
-  G.add_edge(frozenset({index}), (frozenset({index}),'p'), weight=x)
-
-import networkx as nx
-import numpy as np
-import copy
+  G.add_edge(frozenset({index}), (frozenset({index}),'p'), weight=x, min_capacity = 0, max_capacity = 1)
 
 def generalized_birkhoff_von_neumann_iterator(H):
   tolerance = np.finfo(np.float).eps * 10
   (G, p) = H.pop(0)
-  #remove integer weighted edges
-  e = [(u,v) for (u,v,d) in G.edges(data=True) if d['weight'] < tolerance or 1-tolerance< d['weight'] < 1+tolerance]
-  G.remove_edges_from(e)
+  #remove edges with integer weights
+  #extracts all edges satisfy the weight threshold (my_network is directed):
+  eligible_edges = [(from_node,to_node,edge_attributes) for from_node,to_node,edge_attributes in G.edges(data=True) if all(i+tolerance < edge_attributes['weight'] or edge_attributes['weight'] < i - tolerance for i in range(0,5))]
+  K = nx.DiGraph()
+  K.add_edges_from(eligible_edges)
   #find a cycle and compute the push_forward and push_reverse probabilities and graphs
-  cycle = nx.find_cycle(G, orientation='ignore')
-  forward_weights = [d['weight'] for (u,v,d) in G.edges(data=True) if (u,v,'forward') in cycle]
-  reverse_weights = [d['weight'] for (u,v,d) in G.edges(data=True) if (u,v,'reverse') in cycle]
-  push_forward = 1 - max(forward_weights)
-  push_reverse = 1-max(reverse_weights)
-  pull_forward = min(forward_weights)
-  pull_reverse = min(reverse_weights)
+  cycle = nx.find_cycle(K, orientation='ignore')
+  forward_weights = [(d['weight'],d['min_capacity'],d['max_capacity']) for (u,v,d) in K.edges(data=True) if (u,v,'forward') in cycle]
+  reverse_weights = [(d['weight'],d['min_capacity'],d['max_capacity']) for (u,v,d) in K.edges(data=True) if (u,v,'reverse') in cycle]
+  push_forward = min((x[2] - x[0] for x in forward_weights))
+  push_reverse = min((x[2] - x[0] for x in reverse_weights))
+  pull_forward = min((x[0] - x[1] for x in forward_weights))
+  pull_reverse = min((x[0] - x[1] for x in reverse_weights))
   push_forward_pull_reverse = min(push_forward,pull_reverse)
   push_reverse_pull_forward = min(pull_forward,push_reverse)
   #Construct the push_forward_pull_reverse graph
   G1 = copy.deepcopy(G)
   for u,v,d in G1.edges(data=True):
-   if (u,v,'forward') in cycle:
+    if (u,v,'forward') in cycle:
       d['weight']+=push_forward_pull_reverse
     if (u,v,'reverse') in cycle:
       d['weight']+=-push_forward_pull_reverse
@@ -116,14 +126,14 @@ def generalized_birkhoff_von_neumann_iterator(H):
       d['weight']+=push_reverse_pull_forward
     if (u,v,'forward') in cycle:
       d['weight']+=-push_reverse_pull_forward
-  H.extend([(G1,p*push_forward_pull_reverse), (G2,p*push_reverse_pull_forward)])
-  return(H)
+  gamma = push_forward_pull_reverse/(push_forward_pull_reverse + push_reverse_pull_forward)
+  return([(G1,p*gamma), (G2,p*(1-gamma))])
 
 H=[(G,1)]
-generalized_birkhoff_von_neumann_iterator(H)   
+generalized_birkhoff_von_neumann_iterator(H)
 </code>
 </pre>
-
+</font>
 <p>  
   
 <p>
