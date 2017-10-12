@@ -44,8 +44,6 @@ import numpy as np
 import copy
 import itertools
 
-#takes the sets of a constraint structure and prints a bihierarchy if one exists
-
 S = {index for index, x in np.ndenumerate(X)}
 C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
 X = np.array([[.4, .6], [.7, .9]])
@@ -55,6 +53,8 @@ constraint_structure_dict = {frozenset({(0, 1), (1, 1)}):(0,2), frozenset({(1, 0
 S = {index for index, x in np.ndenumerate(X)}
 for x in S:
   constraint_structure_dict.update({frozenset({x}):(0,1)})
+
+#takes the sets of a constraint structure and prints a bihierarchy if one exists
 
 def bihierarchy_test(C):
   permutations =  itertools.permutations(C)
