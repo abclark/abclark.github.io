@@ -44,13 +44,12 @@ import numpy as np
 import copy
 import itertools
 
-S = {index for index, x in np.ndenumerate(X)}
 C = [{(0, 1), (1, 1)}, {(1, 0), (0, 0)}, {(0, 1), (0, 0), (1, 1)}, {(0, 1), (1, 0), (0, 0)}]
 X = np.array([[.4, .6], [.7, .9]])
+S = {index for index, x in np.ndenumerate(X)}
 constraint_structure_dict = {frozenset({(0, 1), (1, 1)}):(0,2), frozenset({(1, 0), (0, 0)}): (0,2), frozenset({(0, 1), (0, 0), (1, 1)}):(0,3), frozenset({(0, 1), (1, 0), (0, 0)}):(0,3)}
 
 #need to assign the min and max capacity attributes to every edge, except to and from whole set
-S = {index for index, x in np.ndenumerate(X)}
 for x in S:
   constraint_structure_dict.update({frozenset({x}):(0,1)})
 
