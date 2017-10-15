@@ -27,6 +27,47 @@ pre {
 <body>
   
 <br><br><br>
+<p>
+<BIG>
+O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;13&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>  
+
+<p>
+This sets assignment probabilities to zero or one (rather than their approximate values of zero or one) and then combines assignments, adding their probabilitiies.
+
+<font size="2">
+<pre><code>
+solution_columns_and_probs = []
+
+for y in solution:
+  solution_columns_and_probs.append([[(u,d['weight']) for (u,v,d) in y[0].edges(data=True) if u in [frozenset({x}) for x in S]],y[1]])
+
+solution_zeroed = []
+
+for z in solution_columns_and_probs:
+    list = []
+    for y in z[0]:
+      if y[1] < tolerance:
+        list.append((y[0],0))
+      elif y[1] > 1-tolerance:
+        list.append((y[0],1))
+    solution_zeroed.append([list,z[1]])
+  
+list = []
+
+for idx, x in enumerate(solution_zeroed):
+  if all(x[0] !=  z[0] for z in [solution_zeroed[i] for i in list]):
+      list.append(idx)
+     
+solution_simplified = []
+   
+for i in list:
+  solution_simplified.append([solution_zeroed[i][0],sum([x[1] for x in solution_zeroed if x[0]==solution_zeroed[i][0]])])
+</code>
+</pre>
+</font>
+
+<p>  
   
 <p>
 <BIG>
