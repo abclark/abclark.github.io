@@ -49,6 +49,12 @@ abbr {
     line-height: 0;
 }
 
+/* resize images */
+.container img {
+    width: 100%;
+    height: auto;
+}
+
 
 div { float: right; margin-left: 50px; }
 img { border: none; }
