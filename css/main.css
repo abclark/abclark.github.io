@@ -50,7 +50,7 @@ abbr {
 }
 
 
-div { float: right; margin-left: 50px; }
+div { float: right; margin-left: 0px; }
 img { border: none; }
 
 /* resize images */
