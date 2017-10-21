@@ -49,15 +49,15 @@ abbr {
     line-height: 0;
 }
 
+
+div { float: right; margin-left: 50px; }
+/*img { border: none; }
+
 /* resize images */
 .container img {
     width: 100%;
     height: auto;
 }
-
-
-div { float: right; margin-left: 50px; }
-img { border: none; }
 
 em,dt { font-style: italic; }
 
