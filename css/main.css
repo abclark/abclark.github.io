@@ -57,7 +57,7 @@ img { border: none; }
 .container img {
     width: 100%;
     height: auto;
-    border: none
+    border: none;
 }
 
 em,dt { font-style: italic; }
