@@ -35,80 +35,93 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;23&nbsp;t&nbsp;h&nb
 
 <p>
 
+8)
+<br>
+<br>
+If \(x\) is in \((0,1)\), must be indifference between local roads and motorway
+<br>
+<br>
+Nash equilibrium for everyone to take motorwa. Stable since small fraction takes local roads, incentive to switch back.
+<br>
+<br>
+Nash equilibrium for fraction 0.1 take local roads. Small fraction more take local roads, then incentive for more to take local roads. Fraction less take local roads, then incentive for less to take local roads. Unstable.
+<br>
+<br>
+Nash equilibrium for fraction 0.8 to take local roads. Small fraction more take local roads, incentive to switch back. Small fraction less take local roads, incentive for more to take local roads. Stable.
+<br>
+<br>
+Bonus: What if one agent has nonnegligable mass?
+<br>
+<br>
+\(x^*=0.5516\) maximizes welfare \(1.8(1 − x) + x(1 + 9x − 10x^2)\)
+<br>
+<br>
+Can impose a quota on local road use of \(x^*\), or else
+tax local road use (or subsidise motorway use) to make people indifferent
+between using both routes when \(x = x^*\)
+<br>
+<br>
+
+7) (b)
+<br>
+<br>
+Bidding more than 100 is weakly dominated since it achieves the minimum payoff no matter what the opponent does. For the same reason bidding 0 is weakly dominated.
+<br>
+<br>
+For any bid \(x_1\) in \((0,100]\), it is better to bid \(\epsilon>0\) less when \(x_1+x_2 = 100+\epsilon \) and worse to bid \(\epsilon>0\) less when \(x_1+x_2 \leq 100 \), so none of these bids are weakly dominated
+<br>
+<br>
+7) (c)
+<br>
+<br>
+Each pair of bids \((x_1,x_2)\) with \(x_1+x_2 = 100 \)  or \(x_1,x_2 \geq 100\) is a Nash equilibrium.
+<br>
+<br>
+
+
+7) (a)
+<br>
+<br>
+There are no strictly dominated strategies: if the opponent bids more than 100 all strategies yield the same payoff of zero.
+<br>
+<br>
+7) (b)
+<br>
+<br>
+Bidding more than 100 is weakly dominated since it achieves the minimum payoff no matter what the opponent does. For the same reason bidding 0 is weakly dominated.
+<br>
+<br>
+For any bid \(x_1\) in \((0,100]\), it is better to bid \(\epsilon>0\) less when \(x_1+x_2 = 100+\epsilon \) and worse to bid \(\epsilon>0\) less when \(x_1+x_2 \leq 100 \), so none of these bids are weakly dominated
+<br>
+<br>
+7) (c)
+<br>
+<br>
+Each pair of bids \((x_1,x_2)\) with \(x_1+x_2 = 100 \)  or \(x_1,x_2 \geq 100\) is a Nash equilibrium.
+<br>
+<br>
+
 6)
 
 <br>
 <br>
-There are two players indexed by \(i=1,2\)
+It is always a Nash equilibrium for both players to exert no effort.
 <br>
 <br>
-Each player's strategy set is the unit interval \([0,1]\)
+Since \(\alpha>2\), the only Pareto efficient outcome is for both players to exert maximal effort.
 <br>
 <br>
-Player payoffs \(u_1,u_2\) are functions on the set of strategy profiles \([0,1] \times [0,1] \) given by
+Conditional on the opponent exerting maximal effort, the marginal benefit of additional effort is \(\alpha/2\) and the marginal cost is \(2\) times the player's effort level. 
 <br>
 <br>
-\[
-u_1(x_1,x_2) = \alpha x_1x_2 - x_1^2 \text{, } u_2(x_1,x_2) = \alpha x_1x_2 - x_2^2 
-\]
+So both players exerting maximal effort is a Nash equilibrium if and only if \(\alpha \geq 4\).
 <br>
 <br>
-The first step is to compute the Nash equilibria.
-<br>
-<br>
-To do this we first calculate each player's best response correspondence. Since the game is symmetric both player's best response functions are symmetric, so we will only solve for player 1.
-<br>
-<br>
-Whatever the opponent does each player has a best response:
-
+That is: 
 <ul>
-  <li>holding fixed the opponent's strategy, payoff functions are continuous on each player's strategy set</li>
-  <li>each player's strategy set is compact</li>
+  <li>All Nash equibibria are inefficient for \(\alpha\) in \((2,4)\)</li>
+  <li>The Pareto efficient outcome is a Nash equilibrium for \(\alpha\geq 4\)</li>
 </ul>
-
-The best response is either an end-point of \([0,1]\) or in its interior. In the latter case it is a critical point of the payoff function, holding fixed opponent strategy, since the latter function is differentiable on \((0,1)\).
-<br>
-<br>
-To solve for the critical points we use Fermat's condition
-<br>
-<br>
-\[
-\frac{\partial u_1(x_1,x_2)}{\partial x_1} = 0 \implies
-x_1^*(x_2) = \frac{\alpha}{2}x_2 \] 
-<br>
-<br>
-There are critical points whenever \(x_2\) is in \((0,2/\alpha)\). For \(x_2\) in \([2/\alpha,1]\), one of the end-points must be the best response.
-<br>
-<br>
-
-At the critical and end points, payoffs are
-<br>
-<br>
-\[
-u_1(0,x_2) = 0 \text{, }u_1(x_1^*(x_2),x_2) = \frac{\alpha^2}{4} x_2^2 \text{, } u_1(1,x_2) = \alpha x_2 - 1 
-\] 
-<br>
-<br>
-It is easy to see that when \(x_2=0\) the best response is \(x_1=0\), and that when \(x_2\) is in \([2/\alpha,1]\) the end-point that is a best response is \(x_1=1\). 
-<br>
-<br>
-For \(x_2\) in \((0,2/\alpha)\), the best response can be shown to be the critical point by, for example, noting that \(u_1(x_1^*(x_2),x_2)\) and \(u_1(1,x_2)\) are continuous, intersect only at \(x_2 = 2/\alpha\), and there are points at which the former function's value dominates the latter. 
-<br>
-<br>
-Therfore, the best response correspondence is
-<br>
-<br>
-\[
-BR_1(x_2)=
-\begin{cases}
-0 & \text{if } x_2 = 0\\
-\frac{\alpha}{2}x_2 & \text{if } x_2 \in (0,2/\alpha)\\
-1 & \text{if } x_2 \in [2/\alpha,1]
-\end{cases}
-\] 
-<br>
-<br>
-The symmetry means that the best response correspondence of player 2 is the same, just with interchanged player indices.
 
 
 
