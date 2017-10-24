@@ -25,9 +25,666 @@ pre {
 
 
 <body>
-  
+    <p>
+<BIG>
+O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;23&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>
 <br><br><br>
   
+  <br><br><br>
+
+<p>
+
+6)
+
+<br>
+<br>
+There are two players indexed by \(i=1,2\)
+<br>
+<br>
+Each player's strategy set is the unit interval \([0,1]\)
+<br>
+<br>
+Player payoffs \(u_1,u_2\) are functions on the set of strategy profiles \([0,1] \times [0,1] \) given by
+<br>
+<br>
+\[
+u_1(x_1,x_2) = \alpha x_1x_2 - x_1^2 \text{, } u_2(x_1,x_2) = \alpha x_1x_2 - x_2^2 
+\]
+<br>
+<br>
+The first step is to compute the Nash equilibria.
+<br>
+<br>
+To do this we first calculate each player's best response correspondence. Since the game is symmetric both player's best response functions are symmetric, so we will only solve for player 1.
+<br>
+<br>
+Whatever the opponent does each player has a best response:
+
+<ul>
+  <li>holding fixed the opponent's strategy, payoff functions are continuous on each player's strategy set</li>
+  <li>each player's strategy set is compact</li>
+</ul>
+
+The best response is either an end-point of \([0,1]\) or in its interior. In the latter case it is a critical point of the payoff function, holding fixed opponent strategy, since the latter function is differentiable on \((0,1)\).
+<br>
+<br>
+To solve for the critical points we use Fermat's condition
+<br>
+<br>
+\[
+\frac{\partial u_1(x_1,x_2)}{\partial x_1} = 0 \implies
+x_1^*(x_2) = \frac{\alpha}{2}x_2 \] 
+<br>
+<br>
+There are critical points whenever \(x_2\) is in \((0,2/\alpha)\). For \(x_2\) in \([2/\alpha,1]\), one of the end-points must be the best response.
+<br>
+<br>
+
+At the critical and end points, payoffs are
+<br>
+<br>
+\[
+u_1(0,x_2) = 0 \text{, }u_1(x_1^*(x_2),x_2) = \frac{\alpha^2}{4} x_2^2 \text{, } u_1(1,x_2) = \alpha x_2 - 1 
+\] 
+<br>
+<br>
+It is easy to see that when \(x_2=0\) the best response is \(x_1=0\), and that when \(x_2\) is in \([2/\alpha,1]\) the end-point that is a best response is \(x_1=1\). 
+<br>
+<br>
+For \(x_2\) in \((0,2/\alpha)\), the best response can be shown to be the critical point by, for example, noting that \(u_1(x_1^*(x_2),x_2)\) and \(u_1(1,x_2)\) are continuous, intersect only at \(x_2 = 2/\alpha\), and there are points at which the former function's value dominates the latter. 
+<br>
+<br>
+Therfore, the best response correspondence is
+<br>
+<br>
+\[
+BR_1(x_2)=
+\begin{cases}
+0 & \text{if } x_2 = 0\\
+\frac{\alpha}{2}x_2 & \text{if } x_2 \in (0,2/\alpha)\\
+1 & \text{if } x_2 \in [2/\alpha,1]
+\end{cases}
+\] 
+<br>
+<br>
+The symmetry means that the best response correspondence of player 2 is the same, just with interchanged player indices.
+
+
+
+
+
+
+
+<br>
+<br>
+5)
+
+
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>L</th>
+    <th>M</th>
+    <th>R</th>
+  </tr>
+  <tr>
+    <th>U</th>
+    <td>\(2,2\)</td>
+    <td>\(1,3\)</td>
+    <td>\(0,1\)</td>
+  </tr>
+  <tr>
+    <th>C</th>
+    <td>\(3,1\)</td>
+    <td>\(0,0\)</td>
+    <td>\(0,0\)</td>
+  </tr>
+   <tr>
+    <th>D</th>
+    <td>\(1,0\)</td>
+    <td>\(0,0\)</td>
+    <td>\(0,0\)</td>
+  </tr>
+</table>
+<br>
+<br>
+
+Neither player has a dominant strategy. However, the game is symmetric so the best response correspondences will be too.
+<br>
+<br>
+Player \(1\)'s best response correspondence is
+<br>
+<br>
+\[
+BR_1(\textbf{L}) = \{\textbf{C}\}\text{,  } BR_1(\textbf{M}) = \{\textbf{U}\}\text{,  } BR_1(\textbf{R}) = \{\textbf{U},\textbf{C},\textbf{D}\}
+\]
+<br>
+<br>
+Player \(2\)'s best response correspondence is
+<br>
+<br>
+\[
+BR_2(\textbf{U}) = \{\textbf{M}\}\text{,  } BR_2(\textbf{C}) = \{\textbf{L}\}\text{,  } BR_2(\textbf{D}) = \{\textbf{L},\textbf{M},\textbf{R}\}
+\]
+<br>
+<br>
+We can immeiatly see that \((\textbf{R},\textbf{B})\) is a Nash equilibrium since
+<br>
+<br>
+\[
+(\textbf{R},\textbf{D}) \in BR_1(\textbf{D}) \times  BR_2(\textbf{R})
+.\]
+<br>
+<br>
+Likewise, \((\textbf{U},\textbf{M})\) and \((\textbf{C},\textbf{L})\) are Nash equilibria since
+<br>
+<br>
+\[
+(\textbf{U},\textbf{M}) \in BR_1(\textbf{M}) \times  BR_2(\textbf{U})
+\]
+\[
+(\textbf{C},\textbf{L}) \in BR_1(\textbf{L}) \times  BR_2(\textbf{C})
+\]
+<br>
+<br>
+
+4)
+
+<br>
+<br>
+A player \(i\)'s <em>best response correspondence</em> is a function mapping opponents' strategy choice to the set of \(i\)'s "best responses".
+
+<br>
+<br>
+<b>Prisoners' Dilemma</b>:
+
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>cooperate</th>
+    <th>defect</th>
+  </tr>
+  <tr>
+    <th>cooperate</th>
+    <td>\(2,2\)</td>
+    <td>\(0,3\)</td>
+  </tr>
+  <tr>
+    <th>defect</th>
+    <td>\(3,0\)</td>
+    <td>\(1,1\)</td>
+  </tr>
+</table>
+<br>
+<br>
+
+The game is symmetric, so both players have the same best response correspondence. Moreover, the best response correspondence is constant because each player has a strictly dominant strategy.
+<br>
+<br>
+\[
+BR(\textbf{cooperate}) = \{\textbf{defect}\}\text{,  } BR(\textbf{defect}) = \{\textbf{defect}\}
+\]
+<br>
+<br>
+
+<b>Battle of Sexes</b>:
+
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>ballet</th>
+    <th>soccer</th>
+  </tr>
+  <tr>
+    <th>ballet</th>
+    <td>\(2,1\)</td>
+    <td>\(0,0\)</td>
+  </tr>
+  <tr>
+    <th>soccer</th>
+    <td>\(0,0\)</td>
+    <td>\(1,2\)</td>
+  </tr>
+</table>
+<br>
+<br>
+
+Again this game is symmetric, so both players have the same best response correspondence. 
+<br>
+<br>
+\[
+BR(\textbf{ballet}) = \{\textbf{ballet}\}\text{,  } BR(\textbf{soccer}) = \{\textbf{soccer}\}
+\]
+<br>
+<br>
+<b>Penny Matching</b>:
+
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>heads</th>
+    <th>tails</th>
+  </tr>
+  <tr>
+    <th>heads</th>
+    <td>\(1,-1\)</td>
+    <td>\(-1,1\)</td>
+  </tr>
+  <tr>
+    <th>tails</th>
+    <td>\(-1,1\)</td>
+    <td>\(1,-1\)</td>
+  </tr>
+</table>
+<br>
+<br>
+
+Player \(1\)'s best response correspondence is
+<br>
+<br>
+\[
+BR_1(\textbf{heads}) = \{\textbf{heads}\}\text{,  } BR_1(\textbf{tails}) = \{\textbf{tails}\}
+\]
+<br>
+<br>
+Player \(2\)'s best response correspondence is
+<br>
+<br>
+
+\[
+BR_2(\textbf{heads}) = \{\textbf{tails}\}\text{,  } BR_2(\textbf{tails}) = \{\textbf{heads}\}
+\]
+<br>
+<br>
+There aren't any Nash equlibria.
+<br>
+<br>
+<b>Stag Hunt</b>:
+
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>stag</th>
+    <th>hare</th>
+  </tr>
+  <tr>
+    <th>stag</th>
+    <td>\(2,2\)</td>
+    <td>\(0,1\)</td>
+  </tr>
+  <tr>
+    <th>hare</th>
+    <td>\(1,0\)</td>
+    <td>\(1,1\)</td>
+  </tr>
+</table>
+<br>
+<br>
+
+Both players have the same best response correspondence. 
+<br>
+<br>
+
+\[
+BR(\textbf{stag}) = \{\textbf{stag}\}\text{,  } BR(\textbf{hare}) = \{\textbf{hare}\}
+\]
+<br>
+<br>
+
+To verify the Nash equilibria of each game we need to check that at the proposed Nash equilibrium each player's strategy is a best response to their opponents strategy. 
+
+<br>
+<br>
+For example, in Prisoners' Dilemmam to verify that \((\textbf{defect},\textbf{defect})\) is a Nash equilibrium we check that
+<br>
+<br>
+\[
+(\textbf{defect},\textbf{defect}) \in BR(\textbf{defect}) \times  BR(\textbf{defect})
+,\]
+<br>
+<br>
+which it is. The other cases are similarly straightforward.
+<br>
+<br>
+
+3)
+
+<br>
+<br>
+
+Again, it is a good idea to explicitly write down the three elements of the game: players, strategies, and payoffs. 
+<br>
+<br>
+In this case, the resulting payoff matrices might look like
+
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>aggressive</th>
+    <th>passive</th>
+  </tr>
+  <tr>
+    <th>aggressive</th>
+    <td>\(0,0\)</td>
+    <td>\(3, 1\)</td>
+  </tr>
+  <tr>
+    <th>passive</th>
+    <td>\(1,3\)</td>
+    <td>\(2,2\)</td>
+  </tr>
+</table>
+
+<br>
+<br>
+Notice that the description implies that both being passive Pareto dominates both being aggressive.
+
+<br>
+<br>
+
+There are two Nash equilibria, in each one player being aggressive and the other passive. 
+
+<br>
+<br>
+
+2) (b)
+
+<br>
+<br>
+
+Reversing the order of payoffs does the trick.
+
+<br>
+<br>
+When both players prefer standing alone to standing together, we get
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>sit</th>
+    <th>stand</th>
+  </tr>
+  <tr>
+    <th>sit</th>
+    <td>\(2,2\)</td>
+    <td>\(1, 3\)</td>
+  </tr>
+  <tr>
+    <th>stand</th>
+    <td>\(3,1\)</td>
+    <td>\(0,0\)</td>
+  </tr>
+</table>
+
+<br>
+<br>
+
+When both players prefer standing together to standing alone, we get
+
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>sit</th>
+    <th>stand</th>
+  </tr>
+  <tr>
+    <th>sit</th>
+    <td>\(2,2\)</td>
+    <td>\(0, 3\)</td>
+  </tr>
+  <tr>
+    <th>stand</th>
+    <td>\(3,0\)</td>
+    <td>\(1,1\)</td>
+  </tr>
+</table>
+
+<br>
+<br>
+
+When the row player prefers standing together to standing alone and the column player prefers standing alone to standing together, we get 
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>sit</th>
+    <th>stand</th>
+  </tr>
+  <tr>
+    <th>sit</th>
+    <td>\(2,2\)</td>
+    <td>\(1, 3\)</td>
+  </tr>
+  <tr>
+    <th>stand</th>
+    <td>\(3,0\)</td>
+    <td>\(0,1\)</td>
+  </tr>
+</table>
+
+<br>
+<br>
+
+In the first case, there is no Nash equilibrium (recall we are only considering pure strategies).
+<br>
+<br>
+In the second case, the unique Nash equilibrium is for both players to stand. Indeed, "stand" is a strictly dominant strategy for both players.
+<br>
+<br>
+In the last case, the column player has a strictly dominant strategy to stand. Consequently, the Nash equilibrium is for the row player to sit and the column player to stand.  
+<br>
+<br>
+The question asks only about the second case.
+<br>
+<br>
+We are also asked to compare "equilibrium levels of comfort" in the two games. 
+<br>
+<br>
+All that can be said is that the Nash equilibrium is now Pareto inefficient—it is a Pareto improvement for both people to sit.
+<br>
+<br>
+
+Bonus question. what if both players realize their opponent cares about their own preferences. How can we model this situation?
+  <br>
+<br>
+2) (a) 
+<br>
+<br>
+A strategic form game has three elements: players, strategies, and payoffs. To be 
+careful it is good idea to write out this information step by step. 
+
+Under the anti-social assumption that standing alone is preferred to standing together the payoff matrices look something like
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>sit</th>
+    <th>stand</th>
+  </tr>
+  <tr>
+    <th>sit</th>
+    <td>\(2,2\)</td>
+    <td>\(3, 1\)</td>
+  </tr>
+  <tr>
+    <th>stand</th>
+    <td>\(1,3\)</td>
+    <td>\(0,0\)</td>
+  </tr>
+</table>
+<br>
+<br>
+
+If, instead, standing together is universally preferable to standing alone we get something like
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>sit</th>
+    <th>stand</th>
+  </tr>
+  <tr>
+    <th>sit</th>
+    <td>\(2,2\)</td>
+    <td>\(3, 0\)</td>
+  </tr>
+  <tr>
+    <th>stand</th>
+    <td>\(0,3\)</td>
+    <td>\(1,1\)</td>
+  </tr>
+</table>
+
+<br>
+<br>
+
+The other possibility is that the players are asymmetric in their preferences for standing with or without the other person. Supposing that the row player is the sociable one, we get something like
+<br>
+<br>
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>sit</th>
+    <th>stand</th>
+  </tr>
+  <tr>
+    <th>sit</th>
+    <td>\(2,2\)</td>
+    <td>\(3, 1\)</td>
+  </tr>
+  <tr>
+    <th>stand</th>
+    <td>\(0,3\)</td>
+    <td>\(1,0\)</td>
+  </tr>
+</table>
+
+<br>
+<br>
+
+The <em>Nash equilibium</em> in all cases is that both players sit, because in all cases "sit" is a <em>strictly dominant strategy</em> for each player.
+<br>
+<br>
+A "Prisoners' Dilemma" is any two player two strategy game where both players have a strictly dominant strategy which leads to payoffs that are Pareto dominated by the payoffs achieved by both players playing the alternative strategy. 
+<br>
+<br>
+This game is not a Prisoners' dilemma because standing together does not Pareto dominate sitting together.
+<br>
+<br>
+Put differently, Adam Smith's invisible hand works in that it leads to a <em>Pareto optimal</em> outcome (i.e. an outcome that is not Pareto dominated).
+<br>
+<br>
+
+
+  
+1) 
+
+<br>
+<br>
+"Prisoners' Dilemma" runs counter to Adam Smith's idea that pursuing private interest promotes social good: defecting is a <em>strictly dominant strategy</em> for each prisoner but leads to an outcome that is <em>Pareto dominated</em> by cooperation. 
+<br><br>
+Any two-strategy, two-player game where this is the case is a Prisoners' Dilemma. For example, \(\text{strategy }2\) is strictly dominant for each player if
+<br>
+\[
+(\text{strategy }2,\text{strategy }1) \succ_1 (\text{strategy }1,\text{strategy }1) \text{, } (\text{strategy }2,\text{strategy }2) \succ_1 (\text{strategy }1,\text{strategy }2),
+\]
+
+
+\[
+(\text{strategy }1,\text{strategy }2) \succ_2 (\text{strategy }1,\text{strategy }1) \text{, } (\text{strategy }2,\text{strategy }2) \succ_2 (\text{strategy }2,\text{strategy }1)
+\]
+
+and both playing \(\text{strategy }2\) is Pareto dominated by both playing \(\text{strategy }1\) if
+<br>
+
+
+\[ 
+(\text{strategy }1,\text{strategy }1) \succ_1 (\text{strategy }2,\text{strategy }2),
+\]
+
+\[ 
+(\text{strategy }1,\text{strategy }1) \succ_2 (\text{strategy }2,\text{strategy }2).
+\]
+
+The question asks you to reimagine a world in which a cartel punishes defection so that, in particular, cooperation becomes a dominant strategy. Obviously the result will be that both prisoners cooperate. 
+<br>
+<br>
+In the peculiar wording of the problem, each prisoner now prefers <em>any</em> amount of jail time than to defect, and thus the resulting game must go from something like
+
+
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>cooperate</th>
+    <th>defect</th>
+  </tr>
+  <tr>
+    <th>cooperate</th>
+    <td>\(1,1\)</td>
+    <td>\(3, 0\)</td>
+  </tr>
+  <tr>
+    <th>defect</th>
+    <td>\(0,3\)</td>
+    <td>\(2,2\)</td>
+  </tr>
+</table>
+<br>
+
+to
+
+<table align="center" style="width:50%">
+  <tr>
+    <th> </th>
+    <th>cooperate</th>
+    <th>defect</th>
+  </tr>
+  <tr>
+    <th>cooperate</th>
+    <td>\(1,1\)</td>
+    <td>\(3, \infty\)</td>
+  </tr>
+  <tr>
+    <th>defect</th>
+    <td>\(\infty,3\)</td>
+    <td>\(\infty,\infty\)</td>
+  </tr>
+</table>
+
+<br>
+where payoffs are in years of prison time.
+<br>
+<br>
+
+Bonus 1: what happens if before having to choose cooperate or defect, the players can  together observe the outcome of a coin toss? Model the game again. How does the set of strategies change? What are the Nash equilibria of this game? What if the players separately observe a coin toss.
+
+<br>
+<br>
+
+Bonus 1: what are the mixed strategy equilibria? what do they mean?
+
+
+  
+</p>
   
    <p>
 <BIG>
