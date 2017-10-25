@@ -25,6 +25,7 @@ pre {
 
 
 <body>
+ 
     <p>
 <BIG>
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;23&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
@@ -32,80 +33,68 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;23&nbsp;t&nbsp;h&nb
 <br><br><br>
  
 <p>
-8) (a)
+6)
+<br><br>
+<em> Two people are engaged in a joint project. If each person \(i\) puts in the effore \(x_i\), a non-negative number equal to at most \(1\), which costs her \(x_i^2\), the outcome of the project is worth \(\alpha x_1 x_2\), where \(\alpha>2\) is a constant. The worth of the project is split equally between the two people, regardless of their effort levels. </em>
+<br><br>
+(b)
+<br><br>
+<em> 
+Then find the values of \(\alpha>2\) for which there exists a Nash equilibrium of the game that is inefficient.
+</em>
+<br><br>
+Let's start with the easy question first.
+<br><br>
+A <em>Nash equilibrium</em> is a strategy profile \((x_1,x_2)\) of effort levels such that each player's strategy is a best response to his opponents strategy.
+<br><br>
+Regardless of the value of \(\alpha\), it is a Nash equilibrium for both players to exert zero effort.
+<br><br>
+For \(\alpha>2\), this Nash equilibrium is Pareto dominated by, for example, both players exerting maximal effort, since \(\alpha/2 - 1 > 0\).
+<br><br>
+(a)
+<br><br>
+<em> 
+Find the values of \(\alpha>2\) for which all Nash equilibria of the game are inefficient. That is, there exists a pair of effort levels that yield higher payoffs for both players than any Nash equilibrium effort levels. 
+</em>
+<br><br>
+We first compute the Nash equilibria.
+<br>
+<br>
+Given \(x_2\) in \([0,1]\), player \(1\)'s marginal benefit of effort is \(\alpha x_2/2\) and player \(2\)'s marginal cost of effort is \(2x_1\).
+<br>
+<br>
+Therefore, \(1\)'s best response to \(x_2\) is \(\alpha x_2/4\) when this is in \((0,1)\) and \(0\) or \(1\) when this quantity is outside \((0,1)\).
+<br>
+<br>
+This can be summarized as \(B_1(x_2) = \min(\alpha x_2/4,1)\).
+<br>
+<br>
+Likewise, \(B_2(x_1) = \min(\alpha x_1/4,1)\).
 <p>
 
 <div class="container">
-<img src="8(a).png" />
+<img src="6(a=2).png" />
+</div> 
+<div class="container">
+<img src="6(a=4).png" />
+</div> 
+<div class="container">
+<img src="6(a=6).png" />
 </div> 
 
 
+
 <p>
-If \(x\) is in \((0,1)\), it must be that all agent's are indifferent between local roads and the motorway
-<br>
-<br>
-It is an equilibrium for everyone to take the motorway. This equilibrium is stable since if a small fraction take local roads, they do worse and so have an incentive to switch back.
-<br>
-<br>
-It is an equilibrium for the fraction 0.1 of the population to take local roads. This equilibrium is unstable since if a small fraction deviate from the motorway to local roads, they do better. Likewise, if a small fraction deviates from local roads to the motorway those that remain on the local roads do worse, and so have an incentive to deviate also.
-<br>
-<br>
-It is an equilibrium for the fraction 0.8 to take local roads. This equilibrium is stable. If a small fraction deviate from the motorway to local roads, they do worse. If a small fraction deviate from local roads to the motorway, local roads become more attractive and so there is an incentive to switch back to local roads.
 
-<br>
-<br>
-8) (c)
-<br>
-<br>
 
-Small fraction more take local roads, incentive to switch back. Small fraction less take local roads, incentive for more to take local roads. Stable.
-<br>
-<br>
-Bonus: What if one agent has non-negligable mass of 0.05?
-<br>
-<br>
-\(x^*=0.5516\) maximizes welfare \(1.8(1 − x) + x(1 + 9x − 10x^2)\)
-<br>
-<br>
-Can impose a quota on local road use of \(x^*\), or else
-tax local road use (or subsidise motorway use) to make people indifferent
-between using both routes when \(x = x^*\)
+
+This implies that both players exerting minimal effort is the unique Nash equilibrium when \(\alpha\) is in \((2,4)\), since the best response to one player's effort level is a lower effort level.
 <br>
 <br>
 
 
-7) (a)
-<br>
-<br>
-There are no strictly dominated strategies: if the opponent bids more than 100 all strategies yield the same payoff of zero.
-<br>
-<br>
-7) (b)
-<br>
-<br>
-Bidding more than 100 is weakly dominated since it achieves the minimum payoff no matter what the opponent does. For the same reason bidding 0 is weakly dominated.
-<br>
-<br>
-For any bid \(x_1\) in \((0,100]\), it is better to bid \(\epsilon>0\) less when \(x_1+x_2 = 100+\epsilon \) and worse to bid \(\epsilon>0\) less when \(x_1+x_2 \leq 100 \), so none of these bids are weakly dominated
-<br>
-<br>
-7) (c)
-<br>
-<br>
-Each pair of bids \((x_1,x_2)\) with \(x_1+x_2 = 100 \)  or \(x_1,x_2 \geq 100\) is a Nash equilibrium.
-<br>
-<br>
+Both players exerting minimal effort is the unique Nash equilibrium when \(\alpha\) is in \((2,4)\), since the best response to one players effort level is a lower effort level.
 
-6)
-
-<br>
-<br>
-It is always a Nash equilibrium for both players to exert no effort.
-<br>
-<br>
-Since \(\alpha>2\), the only Pareto efficient outcome is for both players to exert maximal effort.
-<br>
-<br>
 Conditional on the opponent exerting maximal effort, the marginal benefit of additional effort is \(\alpha/2\) and the marginal cost is \(2\) times the player's effort level. 
 <br>
 <br>
@@ -124,8 +113,129 @@ That is:
 
 
 
+
 <br>
 <br>
+
+
+
+8) 
+<br><br>
+<em> There are two routes for driving from \(A\) to \(B\). One is the motorway, and the other consists of local roads. The benefit of using the mororway is constant ans equal to 1.8, irrespective of the number of people using it. Local roads get congested when too many people use them, but if too few people use them, the few isolated drivers run the risk of becoming victims of crime. Suppose that when a fraction \(x\) of the population uses local roads, the benefit of this mode to each driver is given by:
+\[
+1 + 9x - 10x^2
+\]
+Throughout this question suppose that there is an infinite number of people such that \(x\) is a continuous variable that can range from \(0\) to \(1\).</em>
+<br><br>
+(a)
+<br><br>
+<em> Draw a graph showing the benefits of the two driving routes as functions of \(x\).
+</em>
+<p>
+
+<div class="container">
+<img src="8(a).png" />
+</div> 
+
+
+<p>
+(b)
+<br><br>
+<em> Identify all possible equilibrium traffic patterns fromm your graph. You should find three. Are any of these equilibria less likely to be played than the others?
+</em>
+<br><br>
+If \(x\) is in \((0,1)\), it must be that all agent's are indifferent between local roads and the motorway
+<br>
+<br>
+It is an equilibrium for everyone to take the motorway. This equilibrium is stable since if a small fraction take local roads, they do worse and so have an incentive to switch back.
+<br>
+<br>
+It is an equilibrium for the fraction 0.1 of the population to take local roads. This equilibrium is unstable since if a small fraction deviate from the motorway to local roads, they do better. Likewise, if a small fraction deviates from local roads to the motorway those that remain on the local roads do worse, and so have an incentive to deviate also.
+<br>
+<br>
+It is an equilibrium for the fraction 0.8 to take local roads. This equilibrium is stable. If a small fraction deviate from the motorway to local roads, they do worse. If a small fraction deviate from local roads to the motorway, local roads become more attractive and so there is an incentive to switch back to local roads.
+
+<br>
+<br>
+(c)
+<br><br>
+<em> What value of \(x\) maximizes the total benefit to the whole population? How might this be achieved?
+</em>
+<br><br>
+Small fraction more take local roads, incentive to switch back. Small fraction less take local roads, incentive for more to take local roads. Stable.
+<br>
+<br>
+Bonus: What if one agent has non-negligable mass of 0.05?
+<br>
+<br>
+\(x^*=0.5516\) maximizes welfare \(1.8(1 − x) + x(1 + 9x − 10x^2)\)
+<br>
+<br>
+Can impose a quota on local road use of \(x^*\), or else
+tax local road use (or subsidise motorway use) to make people indifferent
+between using both routes when \(x = x^*\)
+<br>
+<br>
+
+
+7) 
+<br><br>
+<em> Two individuals are considering undertaking a business venture that will earn them $100 in profit, but they must agree how to split the $100. The two individuals agree to simultaneously make a non-negative demand, If their demands sum to more than $100, they fail to agree, don't undertake the venture and each gets nothing. If their demands sum to less than $100, they do the project, each gets his demand, and the rest goes to charity (which neither values).
+</em>
+<br><br>
+
+(a)
+<br><br>
+<em> What are each player's strictly dominated strategies?</em>
+<br><br>
+A strategy \(x_i\) is <em>strictly dominated</em> if there is a strategy \(x_i'\) that always does better.
+<br>
+<br>
+In this game, no strategy can always do better than any other since if the opponent bids more than \(100\), every strategy delivers a payoff of \(0\). 
+<br>
+<br>
+Therefore, there are no strictly dominated strategies. 
+<br>
+<br>
+(b)
+<br><br>
+<em> What are each player's weakly dominated strategies?</em>
+<br><br>
+A strategy \(x_i\) is <em>weakly dominated</em> if there is a strategy \(x_i'\) that always does at least as well.
+<br>
+<br>
+Bids that are \(0\) or greater than \(100\) are weakly dominated because they gaurentee the minimal payoff of \(0\).
+<br>
+<br>
+Consider a bid \(x_i\) in \((0,100]\).
+<br>
+<br>
+If \(x_j=100-x_i\), then \(x_i\) does better than any other bid \(i\) could make.
+<br>
+<br>
+Therefore, \(x_i\) cannot be a weakly dominated strategy.
+<br>
+<br>
+(c)
+<br>
+<br>
+<em> What are the Nash equilibrium of this game?</em>
+<br>
+<br>
+A <em>Nash equilibrium</em> is a strategy profile \((x_1,x_2)\) such that each player's strategy is a best response to their opponents' strategies.
+<br>
+<br>
+Each pair of bids \((x_1,x_2)\) with \(x_1+x_2 = 100 \) or \(x_1,x_2 \geq 100\) is a Nash equilibrium.
+<br>
+<br>
+If \(x_1+x_2 < 100 \), each player has an incentive to increase their bid.
+<br>
+<br>
+If \(x_1+x_2 > 100 \) and either \(x_1 < 100\) or \(x_2 < 100\), then there is a player with an incentive to devate so that the total bid is \(100\).
+<br>
+<br>
+
+
 5)
 
 
@@ -695,7 +805,6 @@ Bonus 1: what are the mixed strategy equilibria? what do they mean?
 </p>
   
    <p>
-     
    
 <BIG>
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;19&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
