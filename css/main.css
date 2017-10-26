@@ -10,7 +10,7 @@ p,ul,dl,h1,h2 {
 body {
     width: 700px;
     margin: 0 auto;
-    padding: 60px 170px 115px 170px;
+    padding: 0;
     background: white  -120px 145px no-repeat;
     font: 15px Times New Roman, serif;
     line-height: 22px;
