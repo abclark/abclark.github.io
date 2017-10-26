@@ -18,6 +18,7 @@ body {
     padding: 60px 170px 115px 170px;
     background: white  -120px 145px no-repeat;
     font-family: "my-font";
+    line-height: 22px;
 }
 
 a       { color: #000; text-decoration: none; }
