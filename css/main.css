@@ -7,17 +7,12 @@ p,ul,dl,h1,h2 {
 
 .xlink {cursor:default}
 
-@font-face {
-  font-family: "my-font";
-  src: url(data:font/truetype;charset=utf-8;base64,T1R...gP5w/kP+RAA format("opentype");
-}
-
 body {
-    width: 1000px;
+    width: 700px;
     margin: 0 auto;
     padding: 60px 170px 115px 170px;
     background: white  -120px 145px no-repeat;
-    font-family: "my-font";
+    font: 15px Times New Roman, serif;
     line-height: 22px;
 }
 
@@ -27,10 +22,6 @@ a:hover { color: #19195D; }
 ul {
     margin-bottom: 12px;
     padding-left: 20px;
-}
-
-pre {
-    white-space: pre-wrap;
 }
 
 p { margin-bottom: 34px; }
@@ -64,7 +55,7 @@ div { float: right; margin-left: 0px; }
 
 /* resize images */
 .container img {
-    width: 100%;
+    width: 75%;
     height: auto;
     border: none;
 }
@@ -77,4 +68,5 @@ dt { width: 50px; }
 dd { width: 605px; }
 dd i { display: none; } /* spam obfuscation */
 dd span i { display: inline; font-style: normal; }
+
 
