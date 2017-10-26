@@ -14,12 +14,12 @@ pre {
 .xlink {cursor:default}
 
 body {
-    width: 1000px;
+    width: 700px;
     margin: 0 auto;
-    padding: 60px 100px 115px 100px;
+    padding: 20px 100px 115px 100px;
     background: white  -120px 145px no-repeat;
-    font: 25px Times New Roman, serif;
-    line-height: 30px;
+    font: 20px Times New Roman, serif;
+    line-height: 27px;
 }
 
 a       { color: #000; text-decoration: none; }
