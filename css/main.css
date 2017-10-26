@@ -28,6 +28,10 @@ ul {
     padding-left: 20px;
 }
 
+pre {
+    white-space: pre-wrap;
+}
+
 p { margin-bottom: 34px; }
 p span {
     font-variant: small-caps;
