@@ -1,3 +1,4 @@
+html { background: #FFFFFF; }
 
 p,ul,dl,h1,h2 {
     padding: 0;
@@ -67,8 +68,3 @@ dt { width: 50px; }
 dd { width: 605px; }
 dd i { display: none; } /* spam obfuscation */
 dd span i { display: inline; font-style: normal; }
-                                                                               
-
-
-
-
