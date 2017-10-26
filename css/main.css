@@ -29,12 +29,7 @@ p,ul,dl,h1,h2 {
 .xlink {cursor:default}
 
 body {
-    width: 850px;
-    margin: 0 auto;
-    padding: 60px 170px 115px 170px;
-    background: white  -120px 145px no-repeat;
-    font: 17px "Computer Modern", sans-serif;
-    line-height: 25px;
+    font: "Computer Modern", sans-serif;
 }
 
 a       { color: #000; text-decoration: none; }
