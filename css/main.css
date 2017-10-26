@@ -61,7 +61,7 @@ div { float: right; margin-left: 0px; }
 
 /* resize images */
 .container img {
-    width: 100%;
+    width: 50%;
     height: auto;
     border: none;
 }
