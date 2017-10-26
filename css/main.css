@@ -7,13 +7,17 @@ p,ul,dl,h1,h2 {
 
 .xlink {cursor:default}
 
+@font-face {
+  font-family: "my-font";
+  src: url(data:font/truetype;charset=utf-8;base64,T1R...gP5w/kP+RAA format("opentype");
+}
+
 body {
     width: 1000px;
     margin: 0 auto;
     padding: 60px 170px 115px 170px;
     background: white  -120px 145px no-repeat;
-    font: 20px Times New Roman, serif;
-    line-height: 15px;
+    font-family: "my-font";
 }
 
 a       { color: #000; text-decoration: none; }
