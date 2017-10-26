@@ -12,8 +12,8 @@ body {
     margin: 0 auto;
     padding: 60px 170px 115px 170px;
     background: white  -120px 145px no-repeat;
-    font: 15px Times New Roman, serif;
-    line-height: 10px;
+    font: 20px Times New Roman, serif;
+    line-height: 15px;
 }
 
 a       { color: #000; text-decoration: none; }
