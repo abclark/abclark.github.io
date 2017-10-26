@@ -62,4 +62,10 @@ div { float: right; margin-left: 0px; }
 
 em,dt { font-style: italic; }
 
+dl { overflow: hidden; }
+dt,dd { margin-left: 20px; float: left; }
+dt { width: 50px; }
+dd { width: 605px; }
+dd i { display: none; } /* spam obfuscation */
+dd span i { display: inline; font-style: normal; }
 
