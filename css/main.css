@@ -69,18 +69,5 @@ dd { width: 605px; }
 dd i { display: none; } /* spam obfuscation */
 dd span i { display: inline; font-style: normal; }
 
-.codebox {
-/* Below are styles for the codebox (not the code itself) */
-    border:1px solid black;
-    background-color:#EEEEFF;
-    width:300px;
-    overflow:auto;    
-    padding:10px;
-}
-.codebox code {
-    /* Styles in here affect the text of the codebox */
-    font-size:0.9em;
-    /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
-}
 
 
