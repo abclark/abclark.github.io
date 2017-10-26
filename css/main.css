@@ -19,6 +19,16 @@ body{font-family:'CMS', 'Droid Sans', Helvetica, Arial, sans-serif;font-size:18p
   margin-right: 4cm;
 }
 
+div { float: right; margin-left: 0px; }
+/*img { border: none; }
+
+/* resize images */
+.container img {
+    width: 100%;
+    height: auto;
+    border: none;
+}
+
 @media print {
   h1, h2, h3 {
     page-break-after: avoid;
