@@ -5,6 +5,12 @@ p,ul,dl,h1,h2 {
     margin: 0;
 }
 
+pre {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
+
 .xlink {cursor:default}
 
 body {
