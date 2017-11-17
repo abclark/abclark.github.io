@@ -6,10 +6,15 @@ p,ul,dl,h1,h2 {
 }
 
 pre {
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+  background-color: #eee;
   overflow: auto;
   word-wrap: normal;
   white-space: pre;
 }
+
 
 .xlink {cursor:default}
 
