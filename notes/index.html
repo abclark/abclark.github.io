@@ -25,7 +25,37 @@ p {
 
 <body>
  
-    <p>
+<p>
+<BIG>
+N&nbsp;O&nbsp;V&nbsp;E&nbsp;M&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;16&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>
+
+<div class="container">
+<img src="grey_binary.png" />
+</div> 
+
+<font size="2">
+<pre><code>
+from PIL import Image
+import numpy as np
+from matplotlib import pyplot as plt
+
+i = Image.open('test_page.jpg').convert('L')
+a = np.asarray(i)
+
+threshold = 150
+im = i.point(lambda p: p > threshold and 255)
+b = np.asarray(im)
+
+plt.subplot(121), plt.imshow(a, cmap='gray')
+plt.subplot(122), plt.imshow(b)
+plt.show()
+</code>
+</pre>
+</font>
+  
+  
+<p>
 <BIG>
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;23&nbsp;r&nbsp;d&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
 </p>
@@ -324,90 +354,6 @@ Experiments on self control, with the laboratory being study sessions in which p
 
 <p>
 
-  
-  
-  <p>
-<BIG>
-O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;15&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
-</p>  
-
-<p>
-  
-1) "Prisoners' Dilemma" runs counter to Adam Smith's idea that pursuing private interest promotes social good: defecting is a <em>strictly dominant strategy</em> for each prisoner but leads to an outcome that is <em>Pareto dominated</em> by cooperation. 
-<br><br>
-Any two-strategy, two-player game where this is the case is a Prisoners' Dilemma. For example, \(\text{strategy }2\) is strictly dominant for each player if
-<br>
-\[
-(\text{strategy }2,\text{strategy }1) \succ_1 (\text{strategy }1,\text{strategy }1) \text{, } (\text{strategy }2,\text{strategy }2) \succ_1 (\text{strategy }1,\text{strategy }2),
-\]
-
-
-\[
-(\text{strategy }1,\text{strategy }2) \succ_2 (\text{strategy }1,\text{strategy }1) \text{, } (\text{strategy }2,\text{strategy }2) \succ_2 (\text{strategy }2,\text{strategy }1)
-\]
-
-and both playing \(\text{strategy }2\) is Pareto dominated by both playing \(\text{strategy }1\) if
-<br>
-
-
-\[ 
-(\text{strategy }1,\text{strategy }1) \succ_1 (\text{strategy }2,\text{strategy }2),
-\]
-
-\[ 
-(\text{strategy }1,\text{strategy }1) \succ_2 (\text{strategy }2,\text{strategy }2).
-\]
-
-The question asks you to reimagine a world in which a cartel punishes defection so that, in particular, cooperation becomes a dominant strategy. Obviously the result will be that both prisoners cooperate. 
-<br>
-<br>
-In the peculiar wording of the problem, each prisoner now prefers <em>any</em> amount of jail time than to defect, and thus the resulting game must go from something like
-
-
-<table align="center" style="width:50%">
-  <tr>
-    <th> </th>
-    <th>cooperate</th>
-    <th>defect</th>
-  </tr>
-  <tr>
-    <th>cooperate</th>
-    <td>\(1,1\)</td>
-    <td>\(3, 0\)</td>
-  </tr>
-  <tr>
-    <th>defect</th>
-    <td>\(0,3\)</td>
-    <td>\(2,2\)</td>
-  </tr>
-</table>
-<br>
-
-to
-
-<table align="center" style="width:50%">
-  <tr>
-    <th> </th>
-    <th>cooperate</th>
-    <th>defect</th>
-  </tr>
-  <tr>
-    <th>cooperate</th>
-    <td>\(1,1\)</td>
-    <td>\(3, \infty\)</td>
-  </tr>
-  <tr>
-    <th>defect</th>
-    <td>\(\infty,3\)</td>
-    <td>\(\infty,\infty\)</td>
-  </tr>
-</table>
-
-<br>
-where payoffs are in years of prison time.
-  
-  <p>
-  
   <p>
 <BIG>
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;14&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
