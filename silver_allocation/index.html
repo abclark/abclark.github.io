@@ -36,10 +36,12 @@ The constraints must form what they call a bihierarchy.</p>
         
         <pre><code>import numpy as np
 from generalized_birkhoff_von_neumann import generalized_birkhoff_von_neumann_decomposition
+
 # Create a doubly stochastic matrix.
 #
 # X = np.array([[.3, .7], [.7,.3]])
 # constraint_structure = {frozenset({(0, 1),(1,0)}): (1,2), frozenset({(1, 0),(1,1)}): (1,1)}
+
 generalized_birkhoff_von_neumann_decomposition(X, constraint_structure)
 </code></pre>
         
