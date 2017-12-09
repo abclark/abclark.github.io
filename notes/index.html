@@ -64,11 +64,11 @@ be permutation matrices, this is the classical Birkhoff von-Neumann decompositio
 Here we implement the algorithm identified in <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a>. 
 The constraints must form what they call a bihierarchy.</p>
 
-        <h2>Installation</h2>
+        <h3>Installation</h3>
         
         <pre><code>pip install generalized_birkhoff_von_neumann</code></pre>
         
-        <h2>Basic usage</h2>
+        <h3>Basic usage</h3>
         
         <pre><code>import numpy as np
 from generalized_birkhoff_von_neumann import generalized_birkhoff_von_neumann_decomposition
@@ -87,11 +87,11 @@ from generalized_birkhoff_von_neumann import generalized_birkhoff_von_neumann_de
 generalized_birkhoff_von_neumann_decomposition(X, constraint_structure)
 </code></pre>
         
-        <h2>Mathematical background</h2>
+        <h3>Mathematical background</h3>
        
         <p>See <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a></p>
 
-<h2>API</h2>
+<h3>API</h3>
         
  <pre><code>>>> import numpy as np
 >>> from generalized_birkhoff_von_neumann import generalized_birkhoff_von_neumann_decomposition
@@ -154,12 +154,11 @@ plt.show()
 </code>
 </pre>      
   
-    
-<p>        
+       
 <div class="container">
 <img src="grey_binary.png" />
 </div> 
-        </p>
+   
         
  <p>
 <BIG>
@@ -194,11 +193,10 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;2&nbsp;3&nbsp;r&nbs
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;1&nbsp;9&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
 </p>
  
-    <p>
 <div class="container">
 <img src="test_page.png" />
 </div> 
- </p>
+
   
 <p>
 <BIG>
@@ -503,7 +501,6 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;1&nbsp;2&nbsp;t&nbs
 </p>  
     
 <p>
-
 This python code iterates <font size="2"><code>generalized_birkhoff_von_neumann_iterator()</code></font> until the central column of each graph is an assignment.
 </p>
 
@@ -652,7 +649,7 @@ generalized_birkhoff_von_neumann_iterator(H)
 </code>
 </pre>
 </font>
-<p>  
+
   
 <p>
 <BIG>
@@ -753,7 +750,7 @@ This python code takes a list of sets and divides them into two groups. In the i
 <br>
 
 If a bihierarchy exists, this procedure will not always find it, and the printing of 'stop' neither implies or is implied by the constraint structure not being bihierarchy. If we consider all orderings of a constraint structure that is a bihierarchy we will find one where all the elements of one piece of the bihierarchy come before all elements of the other. The procedure will find this bihierarchy. 
-
+</p>
 
 <font size="2">
 <pre>
@@ -774,8 +771,6 @@ for x in C:
 </code>
 </pre>
 </font>
-
-<p>
  
  
 <p>
@@ -788,6 +783,7 @@ Given an expected assignment and constraint structure, want to construct a weigh
 <br>
 <br>
 First construct the central column
+</p>
 
 <font size="2">
 <pre>
@@ -804,10 +800,12 @@ for index, x in np.ndenumerate(X):
 </pre>
 </font>
 
+<p>
 Now construct the two sides of the column from the constraint structure. Upper and lower bounds of the constraint structure wil be used to determine the dlows. For now we will work with only the subsets of object-agent pairs. Need to organize these subsets into a bihierarchy if possible. 
 <br>
 <br>
 Start with two directed graphs and the list of subsets
+</p>
 
 <font size="2">
 <pre>
@@ -831,9 +829,9 @@ S = {index for index, x in np.ndenumerate(X)}
 </pre>
 </font>
 
-I see two options for proceeding. One is to stop this approach and just work with <code>C</code>, iteratively dividing it into two pieces according to the rules of biheirarchy. Two is to order <code>C</code> by cardinality and to apply the same approach as one but try to construct the pieces of the directed graph in the process of seeing if the constraint structure is a bihierarchy.
-  
 <p>
+I see two options for proceeding. One is to stop this approach and just work with <code>C</code>, iteratively dividing it into two pieces according to the rules of biheirarchy. Two is to order <code>C</code> by cardinality and to apply the same approach as one but try to construct the pieces of the directed graph in the process of seeing if the constraint structure is a bihierarchy.
+</p>
 
 <p>
 <BIG>
@@ -841,12 +839,11 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;7&nbsp;t&nbsp;h&nbs
 </p>  
  
  <p> 
-  
 One is given an expected assignment of objects to agents and a constraint structure specifying upper and lower bounds on the number of assignments per set of object-agent pairs. If the constraint structure is what <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a> call a <em>bihierarchy</em> then there exists a distribution over constraint abiding assignments that gives the expected assignment.
 <br>
 <br>
 The first step of this algorithm represents the expected assignment and constraint structure as a weighted directed graph. The second step recursively invokes an algorithim on this graph, below implemented in python as <font size="2"><code>generalized_birkhoff_von_neumann_iterator()</code></font>, that decomposes expected assignments into pairs of expected assignments that are eventually pure assignments.
- 
+ </p>
   
 <font size="2">
 <pre>
@@ -922,7 +919,6 @@ def generalized_birkhoff_von_neumann_iterator(H):
 </pre>
 </font>
 
-<p>
 
 <p>
 <BIG>
@@ -1116,21 +1112,7 @@ By randomly selecting two people in this way we are actually randomly selecting 
 <br>
 
 This procedure is a generalized version of what is known as the <em>probabilistic serial mechanism</em>. See <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a>.
-
-
-<p>
-
-
-
-
-
-<br>
-
-
-
-
-
-
+</p>
 
 
 
@@ -1153,18 +1135,7 @@ Original explanation correct.
 Types of problem with strong complementarities in information acquisiton. Set of stocks. If common stocks or stocks corellated in portfolios, can learn expected payoff for multiple decisions. Thus affect signal probability of one decision with learning about payoff of another.
 <br><br>
 Risk averse agent. Conjecture: make safe decision more risky rather than risky decision. Interaction with information acquisition. Limited liability infinite risk aversion at limit. Perhaps softer version previous explanation with Lagrange multiplier replaced by risk aversion. 
-<p>
-
-
-
-
-
-<br>
-
-
-
-
-
+</p>
 
 
 
@@ -1175,7 +1146,6 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;4&nbsp;t&nbsp;h&nbs
 
 
 <p>
-
 Desire delta \(f(p)\) at stock price \(p\). Suppose \(f\) decreasing and \(0\) at the initial price \(\bar p\). 
 
 Take a sold put option on this stock with strike \(x\). Let \(g(p,x)\) denote the delta of this option. Likewise for a sold call option using \(h(p,x)\) and suppose their deltas as at expiry.
@@ -1199,8 +1169,7 @@ For price \(p>\bar p\)
 converges as \(\Delta\) goes to \(0\) to \(\int_{\bar p}^p f'(t)dt = f(p)\).
 
 For continuous strikes portfolio consists of infinitesimal quantity of each option.
-
-<p>
+</p>
   
 
 
