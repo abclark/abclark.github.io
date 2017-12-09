@@ -17,8 +17,44 @@
   <body>
     <div class="wrapper">  
       <section>
-        <h1>Birkhoff-von Neumann decomposition with constraints</h1>
+        <h1>Notes of the day</h1>
 
+<p>
+<BIG>
+D&nbsp;E&nbsp;C&nbsp;E&nbsp;M&nbsp;B&nbsp;E&nbsp;R&nbsp&nbsp;&nbsp;9&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>        
+
+<pre><code>
+R = {0: [0,1,2], 1: [2,1,0], 3: [2,0,1]}
+
+import numpy as np
+
+m = np.ones(len(R[0]))
+P={}
+for key, value in R.items():
+  P[key]=np.zeros(len(value))
+
+while max(m) > 0:
+  for key,value in R.items():
+    R[key] = [i for i in value if m[i] != 0]
+  y = np.zeros(len(m))
+  for key,value in R.items():
+    y[value[0]] += 1
+  #time taken to deplete remaining mass
+  z = [max(i,0.001)/max(j,0.0001) for i,j in zip(m,y)]
+  #reduce masses 
+  for key,value in R.items():
+    m[value[0]] -= min(z)
+    P[key][value[0]] += min(z)  
+else:
+  print(P)
+</code></pre>
+        
+ <p>
+<BIG>
+D&nbsp;E&nbsp;C&nbsp;E&nbsp;M&nbsp;B&nbsp;E&nbsp;R&nbsp&nbsp;&nbsp;8&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>         
+        
         <p><em>View the <a href="https://github.com/abclark/generalized_birkhoff_von_neumann">source of this content</a>.</em></p>
 
         <p>Decomposes a matrix into a weighted average of basis matrices whose entries are zero or one and 
@@ -123,8 +159,21 @@ plt.show()
 </code>
 </pre>
 </font>        
-        
+      
+ <p>
+<BIG>
+D&nbsp;E&nbsp;C&nbsp;E&nbsp;M&nbsp;B&nbsp;E&nbsp;R&nbsp&nbsp;&nbsp;8&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
+</p>         
   
+        <p>
+
+<a href="./ProblemSet2Notes.pdf"><em>Paper 2, Part 1, Problem set 2</em></a>.
+ 
+
+  
+</p>
+  
+        
 <p>
 <BIG>
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;23&nbsp;r&nbsp;d&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
