@@ -205,8 +205,6 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;1&nbsp;9&nbsp;t&nbs
 O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;1&nbsp;7&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
 </p>
 
-<p>
-
  <font size="2">
 <pre><code>  
 #generalized_birkhoff_von_neumann.py decomposes a matrix into a weighted average of basis matrices with integer coefficients
@@ -427,8 +425,7 @@ def generalized_birkhoff_von_neumann_decomposition(X,constraint_structure):
   #
   pprint([coefficients, assignments, sum(coefficients), sum(i[1]*i[0] for i in zip(coefficients, assignments))])
  </code></pre> </font>
-  
-   <p>
+ 
 
   <p>
 <BIG>
@@ -437,6 +434,8 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;1&nbsp;4&nbsp;t&nbs
   
 <p>
 This transforms the assignments to <code>numpy</code> arrays and computes the expected assignment. There seems to be an issue though, because the expected assignment computed here is not equal to \(X\).
+</p>
+
 <font size="2">
 <pre><code>
 matrix_solution = []
@@ -454,7 +453,7 @@ sum(expected_assignment)
 </code>
 </pre>
 </font>
-<p>  
+  
     
     
 <p>
@@ -464,6 +463,7 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;1&nbsp;3&nbsp;t&nbs
 
 <p>
 This sets assignment probabilities to zero or one (rather than their approximate values of zero or one) and then combines identical assignments, adding their probabilitiies.
+</p>
 
 <font size="2">
 <pre><code>
@@ -495,9 +495,7 @@ for i in list:
   solution_simplified.append([solution_zeroed[i][0],sum([x[1] for x in solution_zeroed if x[0]==solution_zeroed[i][0]])])
 </code>
 </pre>
-</font>
-
-<p>  
+</font> 
   
 <p>
 <BIG>
@@ -507,7 +505,7 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;1&nbsp;2&nbsp;t&nbs
 <p>
 
 This python code iterates <font size="2"><code>generalized_birkhoff_von_neumann_iterator()</code></font> until the central column of each graph is an assignment.
-
+</p>
 
  
  <font size="2">
@@ -521,8 +519,10 @@ while len(H) > 0:
     solution.append(H.pop(0))
 </code></pre></font>
 
+<p>
 I now want to merge duplicate allocations and their probabilities, check that the average of the assignments is the expected assignment \(X\), and to present the results in a readable form. Below are some pieces for doing this.
-  
+</p>
+
 <font size="2">
 <pre><code>  
 solution_graphs = []
@@ -543,8 +543,8 @@ for y in solution:
 </pre>
 </font>
 
+<p>
 Is there a way to reduce the number of assignments? Would searching for the longest cycle do this?
-  
 </p>  
   
 <p>
@@ -553,8 +553,8 @@ O&nbsp;C&nbsp;T&nbsp;O&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;1&nbsp;1&nbsp;t&nbs
 </p>
 
 <p>
-
 The constraint structure is a dictionary whose keys are constraint sets and singleton object-agent pairs, and whose values are the corresponding tuples of minimum and maximum capacity.
+</p>
 
   <font size="2">
 <pre><code>
@@ -667,6 +667,7 @@ We now have the building blocks of python code to construct the directed graph f
 <br>
 
 The followinng will find a bihierarchy if one exists
+</p>
 
 <font size="2">
 <pre>
@@ -695,7 +696,9 @@ for c in pc:
 </pre>
 </font>
 
+<p>
 Next we construct from the bihierarchy the two sides of the directed graph
+</p>
 
 <font size="2">
 <pre>
@@ -733,9 +736,9 @@ for index, x in np.ndenumerate(X):
 </pre>
 </font>
 
-The final step is to use conservation of flow to fill in the remaining weights.
-
 <p>
+The final step is to use conservation of flow to fill in the remaining weights.
+</p>
   
 <p>
 <BIG>
