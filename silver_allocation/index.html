@@ -97,7 +97,7 @@ array([[ 0.5,  0.2,  0.3],
         
 <p>To implement the probabilities of \(X\), one needs to find a distribution over allocations of objects to agents. Such an allocation may be represented as a matrix with binary entries, a \(1\) in the \(i\)'th row and \(j\)'th column meaning that agent \(i\) wins object \(j\) and a \(0\) meaning that agent \(i\) does not win object \(j\). If \(n=m\), such a matrix is a permutation matrix of the same size as \(X\), hence the problem can be solved using the Birkhoff-von Neumann decomposition.</p>
   
-<p>If \(n \neq m\), or to impose constraints—e.g. each agent is allocated at least one object, no agent is allocated more than \(k\) objects, etc—we may apply <code>generalized_birkhoff_von_neumann_decomposition</code>.</p>
+<p>For \(n \neq m\), or to impose additional constraints (e.g. each agent is allocated at least one object, no agent is allocated more than \(k\) objects, etc), apply <code>generalized_birkhoff_von_neumann_decomposition</code>.</p>
 
 <p>To run the probabalistic serial mechanism, follow the instructions below.</p> 
         
