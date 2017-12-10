@@ -97,7 +97,40 @@ array([[ 0.5,  0.2,  0.3],
         
 <p>To implement these probabilities, one needs to find a distribution over allocations. This we represent as a weighted sum of permutation matrices of the same size as \(X\). This is the classical Birkhoff-von Neumann decomposition.</p>
   
-<p>To impose additional constraints——e.g. each agent is allocated at least one item, no agent is allocated more than \(k\) items, etc——we can apply <code>generalized_birkhoff_von_neumann_decomposition</code>.</p>
+<p>To impose additional constraints—e.g. each agent is allocated at least one item, no agent is allocated more than \(k\) items, etc—we can apply <code>generalized_birkhoff_von_neumann_decomposition</code>.</p>
+
+<p>To run the probabalistic serial mechanism:</p> 
+        
+<h3>Installation</h3>
+        
+        <pre><code>pip install probabalistic_serial_mechanism</code></pre>
+        
+<h3>Basic usage</h3>
+        
+        <pre><code>import numpy as np
+from generalized_birkhoff_von_neumann import generalized_birkhoff_von_neumann_decomposition
+
+# Create a dictionary R with agent's as keys and rank order list as values.
+#
+#For example
+#
+# R = {0: [0,1,2], 1: [2,1,0]}
+
+probabalistic_serial_mechanism(R)
+</code></pre>
+        
+        <h2>Mathematical background</h2>
+       
+        <p>See <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a>.</p>
+
+<h2>API</h2>
+        
+ <pre><code>>>> import numpy as np
+>>> from probabalistic_serial_mechanism import probabalistic_serial_mechanism
+>>> R = {0: [0,1,2], 1: [2,1,0]}
+>>> probabalistic_serial_mechanism(R)
+{0: array([ 1. ,  0.5,  0. ]), 1: array([ 0. ,  0.5,  1. ])}
+>>> </code></pre>
 
   
 <!--  
