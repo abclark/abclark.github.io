@@ -91,19 +91,19 @@ array([[ 0.5,  0.2,  0.3],
        [ 0.2,  0.3,  0.5]])]
 >>> </code></pre>
 
-<h2>Application: probabalistic serial mechanism with constraints</h2>        
+<h2>Application: probabilistic serial mechanism with constraints</h2>        
         
 <p>There are \(n\) objects to be allocated among \(m\) agents. Each agent has a ranking of the objects. The probability of agent \(i\) winning object \(j\) is derived from the following process. Agents simultaneously and at the same speed 'eat' probability mass of their top ranked item for which probability mass still exists. The resulting probabilities can be collected in an \(m \times n\) matrix \(X\) whose entry in its \(i\)'th row and \(j\)'th column is the probability that agent \(i\) wins object \(j\).</p>
         
-<p>To implement the probabilities of \(X\), one needs to find a distribution over allocations of objects to agents. Such an allocation may be represented as a matrix with binary entries, a \(1\) in the \(i\)'th row and \(j\)'th column meaning that agent \(i\) wins object \(j\) and a \(0\) meaning that agent \(i\) does not win object \(j\). If \(n=m\), such a matrix is a permutation matrix of the same size as \(X\), hence the problem can be solved using the Birkhoff-von Neumann decomposition.</p>
+<p>To implement the probabilities of \(X\), one needs to find a distribution over allocations of objects to agents. Such an allocation may be represented as a matrix with binary entries, a \(1\) in the \(i\)'th row and \(j\)'th column meaning that agent \(i\) wins object \(j\) and a \(0\) meaning that agent \(i\) does not win object \(j\). If \(n=m\), such a matrix is a permutation matrix and hence the problem can be solved using the Birkhoff-von Neumann decomposition.</p>
   
 <p>For \(n \neq m\), or to impose additional constraints (e.g. each agent is allocated at least one object, no agent is allocated more than \(k\) objects, etc), apply <code>generalized_birkhoff_von_neumann_decomposition</code>.</p>
 
-<p>To run the probabalistic serial mechanism, follow the instructions below.</p> 
+<p>To run the probabilistic serial mechanism, follow the instructions below.</p> 
         
 <h3>Installation</h3>
         
-        <pre><code>pip install probabalistic_serial_mechanism</code></pre>
+        <pre><code>pip install probabilistic_serial_mechanism</code></pre>
         
 <h3>Basic usage</h3>
         
@@ -113,7 +113,7 @@ array([[ 0.5,  0.2,  0.3],
 #
 # R = {0: [0,1,2], 1: [2,1,0]}
 
-probabalistic_serial_mechanism(R)</code></pre>
+probabilistic_serial_mechanism(R)</code></pre>
         
         <h3>Mathematical background</h3>
        
@@ -121,9 +121,9 @@ probabalistic_serial_mechanism(R)</code></pre>
 
 <h3>API</h3>
         
- <pre><code>>>> from probabalistic_serial_mechanism import probabalistic_serial_mechanism
+ <pre><code>>>> from probabilistic_serial_mechanism import probabilistic_serial_mechanism
 >>> R = {0: [0,1,2], 1: [2,1,0]}
->>> probabalistic_serial_mechanism(R)
+>>> probabilistic_serial_mechanism(R)
 {0: array([ 1. ,  0.5,  0. ]), 1: array([ 0. ,  0.5,  1. ])}
 >>> </code></pre>
 
