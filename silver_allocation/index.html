@@ -93,11 +93,11 @@ array([[ 0.5,  0.2,  0.3],
 
 <h2>Application: probabalistic serial mechanism with constraints</h2>        
         
-<p>There are \(n\) objects to be allocated among \(m\) agents. Each agent has a ranking of the objects. The probability of agent \(i\) winning object \(j\) is derived from the following process. Agents simultaneously and at the same speed start 'eating' probability mass of their top ranked item for which probability mass still exists. The resulting probabilities can be collected in an \(m \times n\) matrix \(X\) whose entry in its \(i\)'th row and \(j\)'th column is the probability that agent \(i\) wins object \(j\).</p>
+<p>There are \(n\) objects to be allocated among \(m\) agents. Each agent has a ranking of the objects. The probability of agent \(i\) winning object \(j\) is derived from the following process. Agents simultaneously and at the same speed 'eat' probability mass of their top ranked item for which probability mass still exists. The resulting probabilities can be collected in an \(m \times n\) matrix \(X\) whose entry in its \(i\)'th row and \(j\)'th column is the probability that agent \(i\) wins object \(j\).</p>
         
-<p>To implement these probabilities, one needs to find a distribution over allocations. This we represent as a weighted sum of permutation matrices of the same size as \(X\). This is the classical Birkhoff-von Neumann decomposition.</p>
+<p>To implement the probabilities of \(X\), one needs to find a distribution over allocations of objects to agents. Such an allocation can represented as a permutation matrix of the same size as \(X\), hence this problem is solved using the Birkhoff-von Neumann decomposition.</p>
   
-<p>To impose additional constraints—e.g. each agent is allocated at least one item, no agent is allocated more than \(k\) items, etc—we can apply <code>generalized_birkhoff_von_neumann_decomposition</code>.</p>
+<p>To impose additional constraints—e.g. each agent is allocated at least one object, no agent is allocated more than \(k\) objects, etc—we may apply <code>generalized_birkhoff_von_neumann_decomposition</code>.</p>
 
 <p>To run the probabalistic serial mechanism:</p> 
         
