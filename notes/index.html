@@ -24,15 +24,13 @@
 D&nbsp;E&nbsp;C&nbsp;E&nbsp;M&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;1&nbsp;5&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;7</BIG>
 </p>        
 
-<pre><code>
->>> try:
+<pre><code>>>> try:
 ...     import Image
 ... except ImportError:
 ...     from PIL import Image
 ... 
 >>> import pytesseract
->>> 
-</code></pre> 
+>>> </code></pre> 
 
 <p><code>test_page1.png</code></p>
         
@@ -40,9 +38,9 @@ D&nbsp;E&nbsp;C&nbsp;E&nbsp;M&nbsp;B&nbsp;E&nbsp;R&nbsp;&nbsp;&nbsp;1&nbsp;5&nbs
 <img src="test_page1.png" />
 </div> 
         
-<pre><code>       
->>> print(pytesseract.image_to_string(Image.open('test_page1.png')))
-4.2 Transposition (Fixed Period d)
+<pre><code>>>> print(pytesseract.image_to_string(Image.open('test_page1.png')))</code></pre>
+
+<pre><code>4.2 Transposition (Fixed Period d)
 
 The message is divided into groups of length d and a pennutation applied to
 the ﬁrst group, the same pennutation to the second group, etc. The pennuta—
@@ -66,8 +64,7 @@ In the Vigenere cipher the key consists of a series of d1etters.These are writ�
 
 ten repeatedly below the message and the two added modulo 26 (considering
 the alphabet numbered from A = 0 to Z = 25. Thus
->>> 
-</code></pre> 
+>>> </code></pre> 
      
         <p><code>fulltestpage.png</code></p>
         
@@ -75,9 +72,10 @@ the alphabet numbered from A = 0 to Z = 25. Thus
 <img src="fulltestpage.png" />
 </div>         
         
-<pre><code>
->>> print(pytesseract.image_to_string(Image.open('fulltestpage.png')))
-, NcoM/aé M/7% Mag
+<pre><code>>>> print(pytesseract.image_to_string(Image.open('fulltestpage.png')))</code></pre>
+        
+        
+<pre><code>, NcoM/aé M/7% Mag
 Mapiéng/ ..~y./¢.,y/2ﬁ,,,.., %"A%
 M AW ZMA/ ﬂuMa W
 
@@ -88,8 +86,7 @@ W /;n mg , “44/4,? ‘ 4%;
 Mad M gag? 4/14.: M
 
 #17 hvm‘ Z— // Aﬁé— W #MW
->>> 
-</code></pre>        
+>>> </code></pre>        
         
         
 <p>
@@ -120,8 +117,7 @@ while max(m) > 0:
     m[value[0]] -= min(z)
     P[key][value[0]] += min(z)  
 else:
-  print(P)
-</code></pre>
+  print(P)</code></pre>
         
  <p>
 <BIG>
