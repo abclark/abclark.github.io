@@ -27,24 +27,21 @@ The constraints must form what they call a bihierarchy.</p>
 <p>Contents</p>
         
 <ul>
-  <li><a href="#First_Point_Header">1 First Point Header</a>
-  <ul>
-    <li><a href="#First_Sub_Point_1">1.1 First Sub Point 1</a></li>
-    <li><a href="#First_Sub_Point_2">1.2 First Sub Point 2</a></li>
-  </ul>
-</li>
-<li><a href="#Second_Point_Header">2 Second Point Header</a></li>
-<li><a href="#Third_Point_Header">3 Third Point Header</a></li>
+  <li><a href="#Installation">Installation</a>
+  <li><a href="#Basic usage">Basic usage</a></li>
+  <li><a href="#Mathematical background">Mathematical background</a></li>
+  <li><a href="#API">API</a></li>
+  <li><a href="#Application: probabilistic serial mechanism with constraints">Application: probabilistic serial mechanism with constraints</a></li>
 </ul>
         
       </header>
       <section>
 
-        <h2 id="First_Point_Header">Installation</h2>
+        <h2 id="Installation">Installation</h2>
         
         <pre><code>pip install generalized_birkhoff_von_neumann</code></pre>
         
-        <h2>Basic usage</h2>
+        <h2 id="Basic usage">Basic usage</h2>
         
         <pre><code>import numpy as np
 from generalized_birkhoff_von_neumann import generalized_birkhoff_von_neumann_decomposition
@@ -63,11 +60,11 @@ from generalized_birkhoff_von_neumann import generalized_birkhoff_von_neumann_de
 generalized_birkhoff_von_neumann_decomposition(X, constraint_structure)
 </code></pre>
         
-        <h2>Mathematical background</h2>
+        <h2 id="Mathematical background">Mathematical background</h2>
        
         <p>See <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a>.</p>
 
-<h2>API</h2>
+<h2 id="API">API</h2>
         
  <pre><code>>>> import numpy as np
 >>> from generalized_birkhoff_von_neumann import generalized_birkhoff_von_neumann_decomposition
@@ -106,7 +103,7 @@ array([[ 0.5,  0.2,  0.3],
        [ 0.2,  0.3,  0.5]])]
 >>> </code></pre>
 
-<h2>Application: probabilistic serial mechanism with constraints</h2>        
+<h2 id="Application: probabilistic serial mechanism with constraints">Application: probabilistic serial mechanism with constraints</h2>        
         
 <p>There are \(n\) objects to be allocated among \(m\) agents. Each agent has a ranking of the objects. The probability of agent \(i\) winning object \(j\) is derived from the following process. Agents simultaneously and at the same speed 'eat' probability mass of their top ranked item for which probability mass still exists. The resulting probabilities can be collected in an \(m \times n\) matrix \(X\) whose entry in its \(i\)'th row and \(j\)'th column is the probability that agent \(i\) wins object \(j\).</p>
         
