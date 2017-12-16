@@ -23,15 +23,13 @@
 Here we implement the algorithm identified in <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a>. 
 The constraints must form what they call a bihierarchy.</p>  
         <p><em>View the <a href="https://github.com/abclark/generalized_birkhoff_von_neumann">source of this content</a>.</em></p>
-       
-<p>Contents</p>
-        
+              
 <ul>
   <li><a href="#Installation">Installation</a>
   <li><a href="#Basic usage">Basic usage</a></li>
   <li><a href="#Mathematical background">Mathematical background</a></li>
   <li><a href="#API">API</a></li>
-  <li><a href="#Application: probabilistic serial mechanism with constraints">Application: probabilistic serial mechanism with constraints</a></li>
+  <li><a href="#Application">Application</a></li>
 </ul>
         
       </header>
@@ -103,7 +101,7 @@ array([[ 0.5,  0.2,  0.3],
        [ 0.2,  0.3,  0.5]])]
 >>> </code></pre>
 
-<h2 id="Application: probabilistic serial mechanism with constraints">Application: probabilistic serial mechanism with constraints</h2>        
+<h2 id="Application">Application: probabilistic serial mechanism with constraints</h2>        
         
 <p>There are \(n\) objects to be allocated among \(m\) agents. Each agent has a ranking of the objects. The probability of agent \(i\) winning object \(j\) is derived from the following process. Agents simultaneously and at the same speed 'eat' probability mass of their top ranked item for which probability mass still exists. The resulting probabilities can be collected in an \(m \times n\) matrix \(X\) whose entry in its \(i\)'th row and \(j\)'th column is the probability that agent \(i\) wins object \(j\).</p>
         
