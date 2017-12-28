@@ -42,50 +42,52 @@ Our paper falls closest to Carroll's. In the terminology of our model, one may v
 
 <h2>The Model</h2>
 
-It is helpful to split up the timing of the model into two dates. At date $0$, a principal faces a choice from a finite set of \emph{decisions} $D$. The date $1$ payoff to the principal from a decision depends on the realization of one among a finite set of \emph{states} $\Theta$, as described by an \emph{output function} $y:D \times \Theta \to \BR$. The principal hires an agent to acquire information about the state and take a decision on his behalf but cannot either monitor how much care the agent takes acquiring information or observe the information the agent does acquire. The principal motivates the agent with a \emph{contract} $b:D \times \Theta \to \BR$ that depends on the decision the agent takes and the realized state of the world---both are verifiable.
+It is helpful to split up the timing of the model into two dates. At date \(0\), a principal faces a choice from a finite set of \emph{decisions} $D$. The date $1$ payoff to the principal from a decision depends on the realization of one among a finite set of \emph{states} $\Theta$, as described by an \emph{output function} $y:D \times \Theta \to \BR$. The principal hires an agent to acquire information about the state and take a decision on his behalf but cannot either monitor how much care the agent takes acquiring information or observe the information the agent does acquire. The principal motivates the agent with a \emph{contract} $b:D \times \Theta \to \BR$ that depends on the decision the agent takes and the realized state of the world---both are verifiable.<br><br>
 
-At date $0$, the principal and agent agree to a contract $b$. At date $1$, before choosing a decision, the agent performs an \emph{experiment} $(X,\{p(\cdot| \theta)\}_{\theta \in \Theta})$, which consists of a finite set of \emph{signals} $X$ and a collection of probability distributions $\{p(\cdot|\theta)\}_{\theta \in \Theta} \subseteq \Delta(X)$ on the set of signals. A \emph{decision rule} $f:X\to \Delta(D)$ describes the agent's randomization over decisions upon observing each signal. 
+At date $0$, the principal and agent agree to a contract $b$. At date $1$, before choosing a decision, the agent performs an \emph{experiment} $(X,\{p(\cdot| \theta)\}_{\theta \in \Theta})$, which consists of a finite set of \emph{signals} $X$ and a collection of probability distributions $\{p(\cdot|\theta)\}_{\theta \in \Theta} \subseteq \Delta(X)$ on the set of signals. A \emph{decision rule} $f:X\to \Delta(D)$ describes the agent's randomization over decisions upon observing each signal.<br><br> 
 
 An \emph{action profile} $(b,X,\{p(\cdot|\theta)\}_{\theta\in \Theta},f)$ consists of a contract, experiment, and decision rule. The agent has preferences over action profiles $(b,X,\{p(\cdot|\theta)\}_{\theta\in \Theta},f)$ given by the expected value of contract payments less an experiment cost: 
-%
-\begin{equation*}
+
+\[
 \sum_{\theta\in \Theta}\pi(\theta)\sum_{x\in X}p(x|\theta)\sum_{d\in D}f(d|x)b(d,\theta)-c(X,\{p(\cdot|\theta)\}_{\theta\in \Theta}).
-\end{equation*} 
-%
-The distribution $\pi\in \Delta(\Theta)$ is the agent's \emph{prior belief} over states and the function $c$ is the agent's \emph{cost function}. For now, the cost function is only assumed to respect the ordering of experiments given by informativeness (see Blackwell's theorem\footnote{Experiment $(X,\{p(\cdot|\theta)\}_{\theta\in \Theta})$ is \emph{more informative} than experiment $(X',\{p'(\cdot|\theta)\}_{\theta\in \Theta})$ if for any prior $\pi$ and contract $b$, whenever some expected payoff can be achieved under the latter experiment, then it can be achieved under the former. That is, for each decision rule $f'$ on $X'$ there exists a decision rule $f$ on $X$ such that 
-%
-\[\sum_{\theta\in \Theta}\pi(\theta)\sum_{x'\in X'}p'(x'|\theta)\sum_{d\in D}f'(d|x')b(d,\theta) = \sum_{\theta\in \Theta}\pi(\theta)\sum_{x\in X}p(x|\theta)\sum_{d\in D}f(d|x)b(d,\theta).\]
-%
+\]
+
+The distribution $\pi\in \Delta(\Theta)$ is the agent's \emph{prior belief} over states and the function $c$ is the agent's \emph{cost function}. For now, the cost function is only assumed to respect the ordering of experiments given by informativeness (see Blackwell's theorem\footnote{Experiment $(X,\{p(\cdot|\theta)\}_{\theta\in \Theta})$ is \emph{more informative} than experiment $(X',\{p'(\cdot|\theta)\}_{\theta\in \Theta})$ if for any prior $\pi$ and contract $b$, whenever some expected payoff can be achieved under the latter experiment, then it can be achieved under the former. That is, for each decision rule $f'$ on $X'$ there exists a decision rule $f$ on $X$ such that
+
+\[
+\sum_{\theta\in \Theta}\pi(\theta)\sum_{x'\in X'}p'(x'|\theta)\sum_{d\in D}f'(d|x')b(d,\theta) = \sum_{\theta\in \Theta}\pi(\theta)\sum_{x\in X}p(x|\theta)\sum_{d\in D}f(d|x)b(d,\theta).
+\]
 
 Experiment $(X,\{p(\cdot|\theta)\}_{\theta\in \Theta})$ is \emph{sufficient} for experiment $(X',\{p'(\cdot|\theta)\}_{\theta\in \Theta})$ if there is a \emph{garbling function} $g:X \to \Delta(X')$ such that 
-%
-\[p'(x'|\theta) = \sum_{x\in X}p(x|\theta)g(x'|x).\] 
-%
-That is, experiment $(X',\{p'(\cdot|\theta)\}_{\theta\in \Theta})$ can be performed by randomizing over its outcomes according to $g$ where the randomization depends on the outcome of the experiment $(X,\{p(\cdot|\theta)\}_{\theta\in \Theta})$.
 
-\emph{Blackwell's theorem} \cite{blackwell1953equivalent} states that an experiment is more informative than  another if and only if it is sufficient.\label{footnote1}}).
+\[
+p'(x'|\theta) = \sum_{x\in X}p(x|\theta)g(x'|x).
+\] 
 
+That is, experiment $(X',\{p'(\cdot|\theta)\}_{\theta\in \Theta})$ can be performed by randomizing over its outcomes according to $g$ where the randomization depends on the outcome of the experiment $(X,\{p(\cdot|\theta)\}_{\theta\in \Theta})$.<br><br>
+
+\emph{Blackwell's theorem} \cite{blackwell1953equivalent} states that an experiment is more informative than  another if and only if it is sufficient.\label{footnote1}}).<br><br>
 
 The principal has preferences over action profiles $(b,X,\{p(\cdot|\theta)\}_{\theta\in \Theta},f)$ given by the expected value of output less contract payments:
 %
-\begin{equation*}
+\[
 \sum_{\theta\in \Theta}\pi(\theta)\sum_{x\in X}p(x|\theta)\sum_{d\in D}f(d|x)\left(y(d,\theta)-b(d,\theta)\right).
-\end{equation*} 
+\]
 %
 
-Contracts are restricted to belong to a set $\mathscr{B}$ of \emph{feasible contracts} and experiments are restricted to belong to a set $\mathscr{E}$ of \emph{feasible experiments}. 
+Contracts are restricted to belong to a set $\mathscr{B}$ of \emph{feasible contracts} and experiments are restricted to belong to a set $\mathscr{E}$ of \emph{feasible experiments}.<br><br>
 
-A contract $b$ satisfies the \emph{limited liability} constraints if $0\leq b(d,\theta)\leq y(d,\theta)$ for all $d\in D,\theta\in \Theta$. The set of feasible contracts are those satisfying the limited liability constraints. This may mean that the principal and agent are wealth constrained (with wealth normalized to zero or included in output $y$) or that the contract is subject to statutory liability limits (as is the case for a limited liability corporation).
+A contract $b$ satisfies the \emph{limited liability} constraints if $0\leq b(d,\theta)\leq y(d,\theta)$ for all $d\in D,\theta\in \Theta$. The set of feasible contracts are those satisfying the limited liability constraints. This may mean that the principal and agent are wealth constrained (with wealth normalized to zero or included in output $y$) or that the contract is subject to statutory liability limits (as is the case for a limited liability corporation).<br><br>
 
-In addition to the incremental cost of acquiring information represented by the cost function $c$, we assume that the agent faces a \emph{capacity constraint} $c(X,\{p(\cdot|\theta)\}_{\theta\in\Theta})\leq k$ that limits the experiments he can perform. The set of feasible experiments are those satisfying this constraint.
+In addition to the incremental cost of acquiring information represented by the cost function $c$, we assume that the agent faces a \emph{capacity constraint} $c(X,\{p(\cdot|\theta)\}_{\theta\in\Theta})\leq k$ that limits the experiments he can perform. The set of feasible experiments are those satisfying this constraint.<br><br>
 
-An action profile $(b,X,\{p(\cdot|\theta)\}_{\theta \in \Theta},f)$ is \emph{feasible} if the contract $b$ and experiment $(X,\{p(\cdot|\theta)\}_{\theta \in \Theta})$ are feasible, and there is no action profile $(b,X',\{p'(\cdot|\theta)\}_{\theta\in \Theta},f')$, consisting of the same contract and some feasible experiment, that the agent prefers. 
+An action profile $(b,X,\{p(\cdot|\theta)\}_{\theta \in \Theta},f)$ is \emph{feasible} if the contract $b$ and experiment $(X,\{p(\cdot|\theta)\}_{\theta \in \Theta})$ are feasible, and there is no action profile $(b,X',\{p'(\cdot|\theta)\}_{\theta\in \Theta},f')$, consisting of the same contract and some feasible experiment, that the agent prefers.<br><br> 
 
-An action profile can be \emph{improved upon} if there is a feasible profile that makes either the agent or principal better off without making the other worse off. An action profile is \emph{Pareto optimal} if it is feasible and cannot be improved upon.
+An action profile can be \emph{improved upon} if there is a feasible profile that makes either the agent or principal better off without making the other worse off. An action profile is \emph{Pareto optimal} if it is feasible and cannot be improved upon.<br><br>
 
 \paragraph{Normalizing the experiment and decision rule.}\label{normalize}
 
-A decision rule is a garbling function (see footnote~\ref{footnote1}). Thus, given action profile $(b,X,\{p(\cdot| \theta)\}_{\theta\in \Theta},f)$, we may define a garbled experiment $(D,\{p'(\cdot|\theta)\}_{\theta\in \Theta})$ by $p'(d|\theta) = \sum_{x\in X}p(x|\theta)f(d|x)$ and choose the decision rule $f':D\to \Delta(D)$ that maps each decision to the degenerate distribution on that decision. The contract has the same expected payoff under this experiment and decision rule and since the former experiment is sufficient for the latter it is weakly more costly. Thus, it is without loss to set the agent's set of signals to be $D$ and the agent's decision rule $f: D\to \Delta(D)$ to map each decision to the degenerate distribution on that decision.
+A decision rule is a garbling function (see footnote~\ref{footnote1}). Thus, given action profile $(b,X,\{p(\cdot| \theta)\}_{\theta\in \Theta},f)$, we may define a garbled experiment $(D,\{p'(\cdot|\theta)\}_{\theta\in \Theta})$ by $p'(d|\theta) = \sum_{x\in X}p(x|\theta)f(d|x)$ and choose the decision rule $f':D\to \Delta(D)$ that maps each decision to the degenerate distribution on that decision. The contract has the same expected payoff under this experiment and decision rule and since the former experiment is sufficient for the latter it is weakly more costly. Thus, it is without loss to set the agent's set of signals to be $D$ and the agent's decision rule $f: D\to \Delta(D)$ to map each decision to the degenerate distribution on that decision.<br><br>
 
 Given this normalization, we will write $p$ for the experiment $(D,\{p(\cdot | \theta)\}_{\theta\in \Theta})$, and write $(b,p)$ for the action profile $(b, D,\{p(\cdot | \theta)\}_{\theta\in \Theta},f)$ in which $f$ maps each decision to the degenerate distribution on that decision. We will write $E_p[b]-c(p)$ and $E_p[y-b]$ for the agent's and principal's utility from action profile $(b,p)$. For experiment $p$, we will write $p(d,\theta)$ for the joint probability $p(d|\theta)\pi(\theta)$, $p(d)$ for the total probability $\sum_\theta \pi(\theta)p(d|\theta)$, and $p(\theta|d)$ for the posterior probability $p(d|\theta)\pi(\theta)/\sum_{\theta'} \pi(\theta')p(d|\theta')$.
 
