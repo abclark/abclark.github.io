@@ -91,6 +91,227 @@ A decision rule is a garbling function (see footnote~\ref{footnote1}). Thus, giv
 
 Given this normalization, we will write $p$ for the experiment $(D,\{p(\cdot | \theta)\}_{\theta\in \Theta})$, and write $(b,p)$ for the action profile $(b, D,\{p(\cdot | \theta)\}_{\theta\in \Theta},f)$ in which $f$ maps each decision to the degenerate distribution on that decision. We will write $E_p[b]-c(p)$ and $E_p[y-b]$ for the agent's and principal's utility from action profile $(b,p)$. For experiment $p$, we will write $p(d,\theta)$ for the joint probability $p(d|\theta)\pi(\theta)$, $p(d)$ for the total probability $\sum_\theta \pi(\theta)p(d|\theta)$, and $p(\theta|d)$ for the posterior probability $p(d|\theta)\pi(\theta)/\sum_{\theta'} \pi(\theta')p(d|\theta')$.
 
- 
+<h2>Results</h2>
+
+\section{Summary of results}\label{Results}
+
+Since both principal and agent are risk-neutral, a Pareto optimal contract is one that maximizes welfare---expected output less the cost of the agent's chosen experiment---subject to the agent obtaining a given level of utility. A way to characterize all Pareto optimal contracts is to start with the contract equal to output and to then consider feasible alterations that increase the principal's payoff at minimal loss to welfare. Our setup provides two ways to do this without altering the agent's behavior, and thus without any loss in welfare.<br><br>
+
+First, since the agent is risk-neutral and does not control the state, altering contract payments by a state-dependent transfer does not alter his behavior. Second, if the agent's capacity constraint binds then a slight scaling down of the contract---multiplying it by a number slightly less than one---will not alter the agent's behavior provided the capacity constraint continues to bind.<br><br>
+
+% In Proposition~\ref{capacitythm} provides a useful link between optimal contracts with and without a capacity constraint.<br><br>
+
+The interval of utilities achievable for the agent by applying these maneuvers to output, correspond to the points on the Pareto frontier in which welfare is maximized. Proposition~\ref{prop2} characterizes these contracts. For lower agent utilities there is no way to increase the principal's payoff without reducing welfare, and thus for such contracts the agent's liability limit binds for at least one decision in each state and the agent's capacity constraint does not bind.<br><br>
+
+We characterize these second-best Pareto optimal contracts in Proposition~\ref{prop3}. These contracts share the features of first-best contracts in that they pay a fraction of output less a state-dependent transfer. But they also involve an optimal distortion, which we give a formula for in this proposition.<br><br>
+
+In section~\ref{poscomp}, we provide a simplified version of this formula specialized to the class of posterior separable cost functions studied in~\cite{caplin2013behavioral} and~\cite{HebertWoodford16}. Expected reduction in Shannon entropy belongs to this class. Under this cost function the optimal distortion reduces to a decision-dependent transfer in which the agent is punished for taking decisions that are likely to make his liability limits bind and rewarded for decisions that are likely to make the principal's liability limits bind.<br><br>
+
+% Section~\ref{r-aversion} provides formulas for the optimal contract when the agent is risk-averse.<br><br> 
+
+Finally, in section~\ref{multiball} we study, with a multi-period version of our model, how the optimal contract changes when the agent's decision and the state control future, as well as current, output. The optimal contract has the same form as in the static model except now the agent is led to internalize the effect of his decision on the principal's future payoffs: the results of the static model apply with current output replaced by output together with the principal's continuation payoff.<br><br>
+
+% Appendix~\ref{proofs} contains all proofs and derivations. Appendix~\ref{graphicalexample} solves a simple example and presents a graphical method for analyzing the optimal contract.
+
+\section{Results}
+
+\subsection{First-best contracts}\label{First-best contracts}
+
+In the standard principal-agent setup with risk-neutral parties the \emph{first-best} contracts (those that maximize welfare $E_p[y]-c(p)$) are given by output less a constant, $b=y-t$. If the principal ``sells the firm'' to the agent for a fee $t$, then the agent necessarily maximizes welfare. In problems of information acquisition there are additional first-best contracts. Given that the agent is risk-neutral and does not control the state, modifying a contract by a state-dependent transfer does not alter his incentives. Thus, any $y-\beta$ with $\beta:\Theta \to \BR$ is first-best.
+
+Introducing a capacity constraint into the problem introduces more first-best contracts. There is $\alpha' \in [0,1]$ such that for any first-best contract $y-\beta$ all contracts $\alpha y - \beta$ with $\alpha\in [\alpha',1]$ are also first-best. When the agent's capacity constraint does not bind under contract $y-\beta$, then $\alpha'=1$; if it does bind, $\alpha'$ is less than $1$.
+
+Conversely, if the cost function, viewed as a function on $\BR^{|D \times \Theta|}$, is differentiable, and each first-best experiment assigns positive probability to each decision in each state, then all first-best contracts take this form. 
+
+\begin{prop}\label{prop2}
+Define $\alpha'$ by
+%
+\[\alpha' = \sup\left\{\alpha \in [0,1] : c(p)< k \text{ for all feasible } p \text{ optimal to contract } \alpha y \right\}.\]
+%
+If a contract has the form $\alpha y - \beta$, with $\alpha \geq \alpha'$ and $\beta: \Theta \to \BR$, then it is first-best.
+
+Conversely, suppose the cost function is differentiable and all first-best experiments assign positive probability to each decision in each state. Then, if $b$ is a first best contract, $b = \alpha y - \beta$ for some $\alpha \geq \alpha'$ and $\beta:\Theta \to \BR$.
+\end{prop}
+
+Note that if a first-best contract is feasible, it is also Pareto optimal. Notice too that if there is a first-best Pareto optimal contract yielding the agent utility $r$, then all Pareto optimal contracts yielding the agent utility at least $r$ are first-best since the agent's utility can be increased without affecting his behavior. 
+
+From here, it is easy to see that the minimum agent utility achievable with a first-best Pareto optimal contract is obtained by the contract $\alpha'y - \beta$, where $\beta:\Theta \to \BR$ brings the minimum contract payment in each state to zero: $\beta(\theta) = \min\{\alpha 'y(d,\theta): d\in D\}$.
+%
+% Notice that for any agent utility above this level, $\alpha^* = \alpha'$ (cf. Proposition~\ref{capacitythm}).
+
+Also note that $\alpha'$ is increasing in the agent's capacity $k$.
+
+\subsection{Dealing with the capacity constraint}\label{CapacityConstraint}
+
+In this section we show that imposing a capacity constraint is equivalent to scaling output. This will allow us to proceed in solving for the second-best Pareto optimal contracts with a scaled level of output in place of the capacity constraint.
+
+The key idea is to consider a perturbation of our model, parametrized by $\alpha \in [0,1]$, in which output $y$ in the principal's objective function is replaced by $\alpha y$ (the feasible contracts, distributions, and profiles remain unchanged). Denote the set of Pareto optimal profiles to the perturbed problem by $\mathscr{P}(\alpha)$, and denote by $\mathscr{P}(\alpha,r)$ the subset of $\mathscr{P}(\alpha)$ in which the agent's utility is minimized subject to it being at least equal to $r$.
+
+Consider a Pareto optimal profile $(b,p) \in \mathscr{P}(1,r)$ to the unperturbed problem. The following Proposition shows that all solutions $\mathscr{P}(1,r)$ of this unperturbed problem (a problem in which the capacity constraint might bind) may be obtained as solutions $\mathscr{P}(\alpha^*,E_{p}[b]-c(p))$ to the perturbed problem for the $\alpha^* \in [0,1]$ defined in the proposition and that, if the agent's cost function is continuous, then for at least one solution of this problem the capacity constraint does not bind.
+
+\begin{lma}\label{capacitythm}
+Let $(b,p) \in \mathscr{P}(1,r)$. Then there exists $\alpha^* \in [0,1]$, defined as
+%
+\[\alpha^* = \sup \left\{\alpha \in [0,1] : c(p')<k \text{ for all } (b',p') \in \mathscr{P}(\alpha, E_p[b]-c(p))\right\},\]
+%
+so that for each $\alpha \in [\alpha^*,1]$,
+%
+\[\mathscr{P}(\alpha,E_p[b]-c(p)) \supseteq \mathscr{P}(1,r),\]
+%
+and, conversely, if $(b_\alpha,p_\alpha)\in \mathscr{P}(\alpha,E_{p}[b]-c(p))$ is such that $c(p_\alpha) = k$, then
+%
+\[(b_\alpha,p_\alpha) \in \mathscr{P}(1,r).\]
+%
+% This relates the Pareto optimal profiles of a perturbed problem to those of an unperturbed problem. 
+
+If the agent's cost function is continuous, then there is a Pareto optimal profile in $\mathscr{P}(\alpha^*,E_p[b]-c(p))$ that solves the problem obtained by removing the capacity constraint from this perturbed problem.
+
+% Under continuity of the agent's cost function and lower hemi-continuity at $\alpha^*$ of the map that takes $\alpha \in [0,1]$ to $\mathscr{P}(\alpha,E_p[b]-c(p))$, the capacity constraint may be removed from the perturbed problem for $\alpha^*$ without altering the set $\mathscr{P}(\alpha^*,E_p[b]-c(p))$ of Pareto optimal profiles. 
+\end{lma}
+
+Note that $\alpha^*$, by its definition, is increasing in the agent's capacity.
+
+% Note that if the mapping from $\alpha \in [0,1]$ to the set of Pareto optimal profiles $\mathscr{P}(\alpha,r)$ is lower hemi-continuous at $\alpha^*$, then all Pareto optimal contracts take this form.
+
+\subsection{Second-best contracts}\label{Second-best contracts}
+
+Having dealt with first-best Pareto optimal contracts (and developed a tool to jettison the capacity constraint) we can now turn to their second-best counterparts. Proposition~\ref{capacitythm} tells us that we can do away with the capacity constraint and instead replace output by $\alpha^*y$. In the next proposition we solve for the form of the optimal contract in the resulting problem.
+
+% tells us that if we know the form of all optimal contracts without the capacity constraint, then provided the agent's cost function is continuous a contract of this form with output replaced by output $\alpha^* y$ is Pareto optimal in the problem with capacity constraints. In this section we will apply this reasoning. We first solve for the form of optimal contracts without the capacity constraint.
+
+\begin{prop}\label{prop3}
+Let $(b,p)$ belong to $\mathscr{P}(\alpha,r)$ and assume that 
+\begin{itemize}
+\item the agent's capacity constraint does not bind: $p$ is an optimal experiment for the agent without a capacity constraint when the contract is $b$;
+\item the agent's cost function $c$ is strictly convex and its second derivative is continuous;
+\item $p$ assigns positive probability to each decision in each state.
+\end{itemize}
+%
+Then 
+%
+\[b(d,\theta)=\alpha y(d,\theta)-\beta(\theta)-\gamma(d,\theta),\]
+%
+\[\gamma(d,\theta) = \frac{1}{\pi(\theta)}\sum_{ d',\theta' }\frac{\partial^2 c(p)}{\partial p(d|\theta)\partial p(d'|\theta')}\left(p(d'|\theta')(1-\xi) - \frac{\lambda[d',\theta']}{\pi(\theta')}\right).\addtag \label{gammaexp}\] 
+%
+The term $\lambda[d,\theta]$ is a Lagrange multiplier for the constraint $0\leq b(d,\theta)\leq y(d,\theta)$: it is non-negative when only the agent's liability limit binds, non-positive when only the principal's liability limit binds, zero when neither liability limit binds, and unrestricted in its value if both liability limits bind; $\xi\in [0,1]$ and is a Lagrange multiplier on the agent's participation constraint.
+\end{prop}
+
+By Proposition~\ref{capacitythm}, when the agent is capacity constrained there is a Pareto optimal contract of the form 
+%
+\[
+b(d,\theta) = \alpha^* y(d,\theta) - \beta(\theta) - \gamma(d,\theta),
+\]
+%
+where $\alpha^*\in [0,1]$ and is increasing in the agent's capacity. For second best contracts we have that 
+%
+\[
+\beta(\theta)= \min\{\alpha^* y(d,\theta)-\gamma(d,\theta): d\in D\}.
+\]
+
+Note that if the mapping from $\alpha \in [0,1]$ to the set of Pareto optimal profiles $\mathscr{P}(\alpha,r)$ is lower hemi-continuous at $\alpha^*$, then all second-best Pareto optimal contracts take this form (cf. Proposition~\ref{capacitythm}).
+
+\section{Discussion}\label{Discussion}
+
+\subsection{Piece rates, indexation, and the optimal distortion}\label{pieceindexationoptimaldistortion}
+
+Together, propositions~\ref{prop2},~\ref{capacitythm}, and~\ref{prop3} provide a general characterization of Pareto optimal contracts in terms of a piece rate $\alpha\in [0,1]$, a state-dependent transfer $\beta:\Theta \to \BR$, and an optimal distortion $\gamma:D\times \Theta \to \BR$.
+
+For a first-best contract, $\gamma=0$ and there is no distortion to incentives. The piece rate $\alpha$ may be any value in the interval $[\alpha',1]$, $\alpha'$ being the point below which the agent's capacity is no longer exhausted. The state-dependent transfer $\beta$ is any state dependent transfer such that the resulting contract $\alpha y - \beta$ satisfies the liability limits and so is feasible.
+
+For a second-best contract the piece rate is equal to $\alpha^*$ and the state-dependent transfer $\beta$ is given by $\beta(\theta) = \min\{\alpha^* y(d,\theta)-\gamma(d,\theta): d\in D\}$ so that liability limits bind in each state. The non-distortionary ways of transferring utility from the agent to the principal are fully exploited. 
+
+The term $\gamma$ describes the optimal distortion to incentives---that is, it is the way of transferring utility from the agent to the principal at minimum loss to welfare (expected output less experiment cost). 
+
+Expression~\ref{gammaexp} sheds light on how this optimal distortion is constructed showing that it largely depends on the complementarities in the cost of acquiring different signals in different states. To see this, suppose that the agent's liability limit binds in state $\theta'$ following decision $d'$ so that the Lagrange multiplier $\lambda[d',\theta']>0$ (i.e. the optimal contract would be different without this liability limit). To lever down the probability of receiving the signal to take decision $d'$ when the state is $\theta'$ the principal can no longer reduce the contract payment $b(d',\theta')$. As a result, other contract payments---those not immobilized against their liability limits---are recruited for this task. Expression~\ref{gammaexp} shows the way this happens. If a contract payment $b(d,\theta)$ is not stuck against the agent's liability limit then complementarity in the cost of signal probabilities $p(d'|\theta')$ and $p(d|\theta)$ together with $\lambda[d',\theta']>0$ adds to $\gamma(d,\theta)$. This reduces the contract payment $b(d,\theta)$ which in turn reduces the signal probability $p(d|\theta)$ and hence signal probability $p(d'|\theta')$. 
+
+The term $p(d'|\theta')(1-\xi)$ in Expression~\ref{gammaexp} accounts for adjustments in the contract payments $b(d,\theta)$ necessary to keep the incentive and participation constraints holding following a reduction in $p(d'|\theta')$.   
+
+% DISCUSSION HERE ABOUT COMPLEMENTARITY IN COSTS. ALSO WHAT IS THE MEANING OF THE FIRST PAYMENT AND WHY DOES IT DISAPPEAR UNDER THE HEBERT WOODFORD COSTS?
+
+
+\subsection{Complementarities in information acquisition}\label{poscomp}
+
+Here we consider a class of cost functions defined in~\cite{HebertWoodford16}. These cost functions emerge from a dynamic information acquisition problem in which an agent at each point in time decides whether to take a decision or continue collecting information. Information collection is modeled as the agent choosing the covariances of a multi-dimensional Brownian motion that moves about the set of probability distributions over states, subject to a constraint on these covariances in terms of the complementarities and substitutabilities of acquiring information about different states. They show that this dynamic problem has a static representation in which the agent's cost function is defined as
+%
+\[
+c(p) = \sum_{d\in D}p(d)D(p(\cdot|d)||\pi)
+\]
+%
+where
+%
+\[
+D(p(\cdot|d)||\pi) = H(p(\cdot|d)) - H(\pi) - (p(\cdot|d)-\pi)^T \nabla H(\pi)
+\]
+%
+is the Bregman divergence associated with the convex function $H$ and where
+%
+\[
+\frac{\partial}{\partial p(\theta|d)}\frac{\partial}{\partial p(\theta'|d)}H(p(\cdot|d)) = \frac{k(\theta,\theta', p(\cdot|d))}{p(\theta|d)p(\theta'|d)}. \addtag \label{genlD}
+\]
+%
+The matrix $k$ is called the information cost matrix and characterizes the complementarities and substitutabilities in acquiring information about different states. It is positive semi-definite, symmetric, and its rows sum to zero. Given experiment $p$, there is complementarity in learning about distinct states $\theta$ and $\theta'$ when $k(\theta,\theta',p(\cdot|d))$ is negative and substitutabilities when it is positive; when $\theta = \theta'$ it is nonnegative and measures the difficulty of learning about state $\theta$.
+
+For any cost function in this class, its Hessian is given by (see section~\ref{BW} for the derivation)
+%
+\[
+\frac{\partial^2 c(p)}{\partial p(d|\theta)\partial p(d|\theta')}
+ = p(d)\frac{k(\theta,\theta',p(\cdot|d))}{p(d|\theta)p(d|\theta')},
+\]
+%
+and $0$ otherwise. Substitution into (\ref{gammaexp}), the expression for $\gamma$, gives
+%
+\[
+\gamma(d,\theta)= -\frac{1}{\pi(\theta)}\sum_{\theta'}\frac{\partial^2 c(p)}{\partial p(d|\theta)\partial p(d|\theta')}\frac{\lambda[d,\theta']}{\pi(\theta')}.
+\]
+%
+
+\subsection{A cost function that yields a simple description of optimal contracts}\label{simpledescription}
+
+A simple and intuitive form for $\gamma$ arises when the agent's information cost matrix $k$ is given by the inverse Fisher information matrix
+%
+\[
+k(\theta,\theta', p(\cdot|d)) = 
+\begin{cases}
+p(\theta|d)(1-p(\theta|d)) & \text{ if } \theta = \theta'\\
+-p(\theta|d)p(\theta'|d) & \text{ if } \theta \neq \theta'
+\end{cases}.
+\]
+%
+Then the agent's cost function is expected reduction in Shannon entropy
+%
+\[c(p) = H_S(\pi) - \sum_{d\in D}p(d)H_S(p(\cdot|d)),\]
+%
+where $H_S$ denotes Shannon entropy, defined for each $q\in \Delta(\Theta)$ by
+%
+\[H_S(q) = -\sum_{\theta\in \Theta} q(\theta)\log q(\theta).\]
+%
+Then 
+%
+\begin{align*}
+\gamma(d,\theta) = \sum_{\bar \theta}\frac{\lambda[d,\bar\theta]}{p(d)}-\frac{\lambda[d,\theta]}{p(d|\theta)\pi(\theta)}
+\end{align*}
+%
+and so the optimal contract has the following simple description:
+
+\begin{itemize}
+\item \textbf{Decision $d$ penalty/reward:} 
+%
+$\hat \gamma(d) = \sum_{\bar \theta}\frac{\lambda[d,\bar\theta]}{p(d)};$
+\item \textbf{Indexed output:} $y_I = y - \beta/\alpha^*$ where 
+%
+$\beta(\theta) = \min\{\alpha^* y(d,\theta)-\hat \gamma(d):d\in D\};$
+\item \textbf{Piece rate:} $\alpha^* \in [0,1]$.
+\end{itemize}
+%
+Here we assume the liability limits are implicitly understood: if the sum of promised payments falls outside the allowed range, the actual payment is the closest liability limit.
+
+Notice that the decision $d$ penalty/reward depends on the number of states in which liability limits bind following decision $d$. When the agent's liability limit binds $\lambda[d,\theta] > 0$ which pushes the decision $d$ transfer in the direction of a punishment; when the principal's liability limit binds $\lambda[d,\theta] < 0$ which pushes the decision $d$ transfer in the direction of a reward. The magnitude of the multiplier indicates the cost to the principal of having the liability limit bind.
+
+One can see from Expression (\ref{genlD}) that we recover the same contract form as when the agent's cost function is expected reduction in Shannon entropy provided the information cost matrix is of the form 
+%
+\[
+k(\theta,\theta', p(\cdot|d))= p(\theta|d)g(\theta',p(\cdot|d))+ \mathbf{1}_{\{\theta'=\theta\}}h(\theta,p(\cdot|d))
+\]
+for some functions $f$ and $g$. However, from this form it is straightforward to show (using symmetry of the information cost matrix and that its rows sum to zero) that the cost function is necessarily proportional to expected reduction in Shannon entropy.
  
 
