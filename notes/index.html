@@ -19,16 +19,50 @@
       <section>
         <h1>Daily notes</h1>
 
-        <p>
 <BIG>
 J&nbsp;A&nbsp;N&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;&nbsp;1&nbsp;s&nbsp;t&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
 </p>        
         
-This python code prompts input of a string. The string is stored in a .txt file alongside the hash of the preceeding line.<br><br>
+This python code prompts input of a string and writes it to a .txt file.<br><br>
+
+<pre><code>todo = input("What do you have to do? ")
+
+f = open("todolist.txt", "r")
+old = f.read()
+f.close
+
+f = open("todolist.txt","w")
+f.write(todo + "\n" + old)
+f.close()</pre></code>
+
+This python code prompts input of a string and deletes it from a .txt file.<br><br>      
+      
+<pre><code>done = input("What have you done? ")
+
+f = open("todolist.txt","r")
+lines = f.readlines()
+f.close()
+
+f = open("todolist.txt","w")
+for line in lines:
+  if line!=done + "\n":
+    f.write(line)
+f.close()</pre></code>    
+      
+<p>          
+<BIG>
+J&nbsp;A&nbsp;N&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;&nbsp;1&nbsp;s&nbsp;t&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
+</p>        
         
+This python code prompts input of a string. The string is stored in a .txt file alongside the hash of the preceding line.<br><br>
+
+I want to check that the file is consistent, i.e. that the hash on each line is the hash of the preceding line. Make a function that does this.<br><br>
+
+<br><br>
+
 <pre><code>import hashlib
 
-todo = input("Enter a message:")
+todo = input("What will you do today?")
 
 with open("todolist.txt", "r+") as f:
   old = f.read()
@@ -39,10 +73,7 @@ with open("todolist.txt", "r+") as f:
   lhash = lhash.hexdigest()
   print(todo + "\t" + lhash)
   f.seek(0)
-  f.write(todo + "\t" + lhash + "\n" + old)
-</pre></code>
-        
-        
+  f.write(todo + "\t" + lhash + "\n" + old)</pre></code>
 
 <p>
 <BIG>
