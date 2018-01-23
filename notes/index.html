@@ -19,6 +19,48 @@
       <section>
         <h1>Daily notes</h1>
 
+<p>
+  <BIG>
+J&nbsp;A&nbsp;N&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;2&nbsp;3&nbsp;r&nbsp;d&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
+</p>        
+        
+I have updated the code for <code>probabilistic_serial_mechanism.py<\code>, to allow for the assignment of multiple units, and of <code>generalized_birkhoff_von_neumann.py<\code>, to print error messages more cleanly (although a problem now is that the <code>sys.exit()<\code> command exits from python). The main difficulty was in updating<code>probabilistic_serial_mechanism.py<\code> so that agent's stop after eating a unit mass of probability for a single item. The updated python code is as follows<br><br>
+
+<pre><code>import numpy as np
+
+TOLERANCE = 1.0e-5
+
+def probabilistic_serial_mechanism(R, m):
+  # define an empty dictionary to store the solution
+  P={}
+  # give the empty dictionary P the structure of the solution
+  for key, value in R.items():
+    P[key]= [0]*len(value)
+  # eat probability mass while it remains
+  while any(R[key] != [] for key,values in R.items()):
+    # if an object has no remaining probability mass, remove it from the rank order lists
+    for key,value in R.items():
+      R[key] = [i for i in value if m[i] > TOLERANCE and P[key][i] < 1-TOLERANCE]
+    # define a zero vector whose dimension equals the number of objects
+    y = np.zeros(len(m))
+    x = np.ones(len(R.items()))
+    # count how many agents rank each object first (under updated rank order lists)
+    for key,value in R.items():
+      if value != []:
+        y[value[0]] += 1
+        x[key] = 1 - P[key][value[0]]
+    # define a vector with entries being the time taken until probability mass is depleted
+    z = [max(i,0.000001)/max(j,0.0000001) for i,j in zip(m,y)]
+    # for each agent, reduce remaining probability masses by smallest time taken to deplete a probability mass
+    for key,value in R.items():
+      if value != []:
+        m[value[0]] -= min(min(z), min(x))
+        P[key][value[0]] += min(min(z), min(x))
+  # if all probaility masses are nil, the process is done—return the solution
+  else:
+    return([P,np.array([value for key, value in P.items()])])</pre></code>
+        
+<p>        
 <BIG>
 J&nbsp;A&nbsp;N&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;&nbsp;3&nbsp;r&nbsp;d&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
 </p>        
