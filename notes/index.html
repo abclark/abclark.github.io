@@ -25,7 +25,115 @@
 F&nbsp;E&nbsp;B&nbsp;R&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;1&nbsp;1&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
 </p>        
         
-<p></p>     
+<p>Goal now it to modify the following breadth-first-search so that it functions as <code>disjoint_set</code>, i.e. outputs the node label of a q-tree that is disjoint from a given set, or, if no such set exists, outputs the special symbol</p>     
+      
+<pre><code>def generic_bfs_edges(G, source, neighbors=None):
+    """Iterate over edges in a breadth-first search.
+
+    The breadth-first search begins at `source` and enqueues the
+    neighbors of newly visited nodes specified by the `neighbors`
+    function.
+
+    Parameters
+    ----------
+    G : NetworkX graph
+
+    source : node
+        Starting node for the breadth-first search; this function
+        iterates over only those edges in the component reachable from
+        this node.
+
+    neighbors : function
+        A function that takes a newly visited node of the graph as input
+        and returns an *iterator* (not just a list) of nodes that are
+        neighbors of that node. If not specified, this is just the
+        ``G.neighbors`` method, but in general it can be any function
+        that returns an iterator over some or all of the neighbors of a
+        given node, in any order.
+
+    Yields
+    ------
+    edge
+        Edges in the breadth-first search starting from `source`.
+
+    Examples
+    --------
+    >>> G = nx.path_graph(3)
+    >>> print(list(nx.bfs_edges(G,0)))
+    [(0, 1), (1, 2)]
+
+    Notes
+    -----
+    This implementation is from `PADS`_, which was in the public domain
+    when it was first accessed in July, 2004.
+
+    .. _PADS: http://www.ics.uci.edu/~eppstein/PADS/BFS.py
+
+    """
+    visited = {source}
+    queue = deque([(source, neighbors(source))])
+    while queue:
+        parent, children = queue[0]
+        try:
+            child = next(children)
+            if child not in visited:
+                yield parent, child
+                visited.add(child)
+                queue.append((child, neighbors(child)))
+        except StopIteration:
+            queue.popleft()
+
+
+[docs]def bfs_edges(G, source, reverse=False):
+    """Iterate over edges in a breadth-first-search starting at source.
+
+    Parameters
+    ----------
+    G : NetworkX graph
+
+    source : node
+       Specify starting node for breadth-first search and return edges in
+       the component reachable from source.
+
+    reverse : bool, optional
+       If True traverse a directed graph in the reverse direction
+
+    Returns
+    -------
+    edges: generator
+       A generator of edges in the breadth-first-search.
+
+    Examples
+    --------
+    To get the edges in a breadth-first search::
+
+        >>> G = nx.path_graph(3)
+        >>> list(nx.bfs_edges(G, 0))
+        [(0, 1), (1, 2)]
+
+    To get the nodes in a breadth-first search order::
+
+        >>> G = nx.path_graph(3)
+        >>> root = 2
+        >>> edges = nx.bfs_edges(G, root)
+        >>> nodes = [root] + [v for u, v in edges]
+        >>> nodes
+        [2, 1, 0]
+
+    Notes
+    -----
+    Based on http://www.ics.uci.edu/~eppstein/PADS/BFS.py
+    by D. Eppstein, July 2004.
+    """
+    if reverse and G.is_directed():
+        successors = G.predecessors
+    else:
+        successors = G.neighbors
+    # TODO In Python 3.3+, this should be `yield from ...`
+    for e in generic_bfs_edges(G, source, successors):
+        yield e</pre></code>
+        
+        
         
 <p>
 <BIG>
