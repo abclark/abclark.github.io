@@ -19,6 +19,28 @@
       <section>
         <h1>Notes</h1>
 
+<p>
+<BIG>
+F&nbsp;E&nbsp;B&nbsp;R&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;1&nbsp;2&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
+</p>        
+        
+<p>The following function implements Algorithm 1. Need to get the function to return instead of print.</p>     
+      
+<pre><code>def disjoint_set(T, K, U):
+  if U =='LAMBDA':
+    print(U)
+  elif not bool(U&K):
+    print(U)
+  else:                    
+    children = list(T.neighbors(U))
+    while children != []:      
+      try:
+        child = children.pop()
+        if T[U][child]['label'] in K & U:
+          U = child
+          disjoint_set(T, K, U)
+      except KeyError:
+        pass</pre></code>
         
 <p>
 <BIG>
