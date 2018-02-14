@@ -21,6 +21,30 @@
 
 <p>
 <BIG>
+F&nbsp;E&nbsp;B&nbsp;R&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;1&nbsp;3&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
+</p>        
+        
+        <p>The function now returns properly. The solution was to put a <code>return</code> before invoking the recursion.</p>     
+      
+<pre><code>def disjoint_set(T, K, U):
+  if U =='LAMBDA':
+    return(U)
+  elif not bool(U&K):
+    return(U)
+  else:   
+    children = list(T.neighbors(U))
+    while children != []:
+      try:
+        child = children.pop()
+        if T[U][child]['label'] in K & U:
+          U = child
+          return disjoint_set(T, K, U)
+      except KeyError:
+        pass
+        pass</pre></code>        
+        
+<p>
+<BIG>
 F&nbsp;E&nbsp;B&nbsp;R&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;1&nbsp;2&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
 </p>        
         
