@@ -18,31 +18,7 @@
     <div class="wrapper">  
       <section>
         <h1>Notes</h1>
-
-<p>
-<BIG>
-F&nbsp;E&nbsp;B&nbsp;R&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;1&nbsp;5&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
-</p>        
         
-<p>Need to reconfigure existing functions to deal with intrinsic structure of tree. For example, <code>disjoint_set</code> now becomes</p>     
-      
-<pre><code># The following function implements Algorithm 1
-def disjoint_set(T, K, U):
-  V = T.nodes[U]['label']
-  if V =='LAMBDA':
-    return(V)
-  elif not bool(V&K):
-    return(V)
-  else:
-    children = list(T.neighbors(U))
-    while children != []:
-      try:
-        child = children.pop()
-        if T[U][child]['weight'] in K & V:
-          U = child
-          return disjoint_set(T, K, U)
-      except KeyError:
-        pass</pre></code>          
         
 <p>
 <BIG>
@@ -103,6 +79,32 @@ def next_generation(G, P):
           U = disjoint_set(P[(w,v)], path.update({w}), find_root(P[(w,v)]))
           B.add_edges_from([(leaf, U, {'label': z})])
     return(P)</pre></code>  
+   
+        
+        <p>
+<BIG>
+F&nbsp;E&nbsp;B&nbsp;R&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;1&nbsp;5&nbsp;t&nbsp;h&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
+</p>        
+        
+<p>Need to reconfigure existing functions to deal with intrinsic structure of tree. For example, <code>disjoint_set</code> now becomes</p>     
+      
+<pre><code># The following function implements Algorithm 1
+def disjoint_set(T, K, U):
+  V = T.nodes[U]['label']
+  if V =='LAMBDA':
+    return(V)
+  elif not bool(V&K):
+    return(V)
+  else:
+    children = list(T.neighbors(U))
+    while children != []:
+      try:
+        child = children.pop()
+        if T[U][child]['weight'] in K & V:
+          U = child
+          return disjoint_set(T, K, U)
+      except KeyError:
+        pass</pre></code>  
         
 <p>
 <BIG>
