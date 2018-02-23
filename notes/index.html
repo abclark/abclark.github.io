@@ -19,6 +19,126 @@
       <section>
         <h1>Notes</h1>
         
+ 
+<p>
+<BIG>
+F&nbsp;E&nbsp;B&nbsp;R&nbsp;U&nbsp;A&nbsp;R&nbsp;Y&nbsp;&nbsp;2&nbsp;3&nbsp;r&nbsp;d&nbsp;&nbsp;&nbsp;2&nbsp;0&nbsp;1&nbsp;8</BIG>
+</p>        
+        
+<p>Most current state of affairs:</p>     
+      
+<pre><code>def root_leaf_edge_set(tree, root, leaf):
+  H = set()
+  H.update({root, leaf})
+  while leaf != root:
+    e = tree[[*tree.predecessors(leaf)].pop()][leaf]['weight']
+    H.update({e})
+    leaf = [*tree.predecessors(leaf)].pop()
+  return H
+
+def disjoint_set(T, K, U):
+  if U =='LAMBDA':
+    return(U)
+  elif not bool(U&K):
+    return(U)
+  else:
+    children = list(T.neighbors(U))
+    while children != []:
+      try:
+        child = children.pop()
+        if T[U][child]['label'] in K & U:
+          U = child
+          return disjoint_set(T, K, U)
+      except KeyError:
+        pass
+
+# create the initial dictionary of trees
+def initial_tree_maker(G):
+  # get basic structure of initial trees
+  D = {}
+  for x in itertools.product(*[G.nodes(),G.nodes]):
+    D.update({x:nx.DiGraph()})
+    if x in G.edges():
+      D[x].add_nodes_from([frozenset()])
+    else:
+      D[x].add_nodes_from(['LAMBDA'])
+  return(D)
+
+def next_generation(G, P):
+  for (u,v) in G.edges():
+    B = P[(u,v)]
+    L = [x for x in B.nodes() if B.out_degree(x) == 0]
+    for leaf in L:
+      if [y for y in leaf] = []:
+      for z in leaf:
+        path = root_leaf_edge_set(B, find_root(B), leaf).update({z})
+        N = [x for x in G.neighbors(u) if x != v]
+        if N == []:
+          B.add_edge_from([leaf,'LAMBDA',{'label': z}])
+        else:
+          w = N.pop()
+          U = disjoint_set(P[(w,v)], path.update({w}), find_root(P[(w,v)]))
+          B.add_edges_from([(leaf, U.update({w}), {'label': z})])
+    return(P)
+
+def next_generation(G, P, K, q):
+  # G is the graph
+  # P is the previous generation of trees
+  # R is the current generation of trees
+  # u and v are nodes, we want to build the u, v tree for this generation
+  R = copy.deepcopy(K)
+  for (u,v) in set(itertools.product(*[G.nodes(),G.nodes])):
+    L = [x for x in R[(u,v)].nodes() if R[(u,v)].out_degree(x) == 0]
+    N = [x for x in G.neighbors(u) if x != v]
+    if len(L) == 0:
+      if len(N) == 0:
+        R[(u,v)].add_nodes_from(['LAMBDA'])
+      else:
+        w = N.pop()
+        R[(u,v)].add_nodes_from([frozenset({w})])
+    else:
+      for leaf in L:
+        short_path = root_leaf_edge_set(R[(u,v)], find_root(R[(u,v)]), leaf)
+        if leaf != 'LAMBDA':
+         if len(short_path) < q:
+            for z in leaf:
+              path = short_path.update({z})
+              if N == []:
+                R[(u,v)].add_edges_from([(leaf, 'LAMBDA', {'label': z})])
+              else:
+                w = N.pop()
+                U = disjoint_set(P[(w,v)], path.update({w}), find_root(P[(w,v)]))
+                if U == 'LAMBDA':
+                  R[(u,v)].add_edges_from([(leaf, 'LAMBDA', {'label': z})])
+                else:
+                  R[(u,v)].add_edges_from([(leaf, U.update({w}), {'label': z})])
+  return(R)
+
+def full_next_generation(G, P, q):
+  R = initial_tree_dictionary(G)
+  K = next_generation(G, P, R, q)
+  while K != R:
+    R = K
+    K = next_generation(G, P, R, q)
+  return(K)
+
+
+def initial_tree_dictionary(G):
+  # get basic structure of initial trees
+  D = {}
+  for x in itertools.product(*[G.nodes(),G.nodes]):
+    D.update({x:nx.DiGraph()})
+  return(D)
+
+
+def root_leaf_edge_set(tree, root, leaf):
+  H = set()
+  H.update({root, leaf})
+  while leaf != root:
+    e = tree[[*tree.predecessors(leaf)].pop()][leaf]['label']
+    H.update({e})
+    leaf = [*tree.predecessors(leaf)].pop()
+  return H        </pre></code>
         
 <p>
 <BIG>
