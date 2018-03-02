@@ -5,7 +5,7 @@
     </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>constrained birkhoff</title>
+    <title>cycle finder</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -17,12 +17,12 @@
   <body>
     <div class="wrapper">
       <header>
-      <h1>Birkhoff-von Neumann decomposition with constraints</h1>
+      <h1>Cycle Finder</h1>
 
-        <p>Decomposes a matrix into a weighted sum of basis matrices with binary entries satisfying user-imposed constraints. When the starting matrix is doubly stochastic and the basis matrices are required to be permutation matrices, this is the classical Birkhoff von-Neumann decomposition.
-Here we implement the algorithm identified in <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a>. 
-The constraints must form what they call a bihierarchy.</p>  
-        <p><em>View the <a href="https://github.com/abclark/generalized_birkhoff_von_neumann">source of this content</a>.</em></p>
+        <p>Determines whether a graph \(G\) has a cycle of length \(k\) from a node \(u\) to a node \(v\), and if so outputs one of these cycles.</p>
+        
+        
+        <p><em>View the <a href="https://github.com/abclark/cycle_finder">source of this content</a>.</em></p>
               
 
 <p>Contents<br>       
@@ -59,8 +59,12 @@ constrained_birkhoff_von_neumann_decomposition(X, constraint_structure)
 </code></pre>
         
         <h2 id="Mathematical background">Mathematical background</h2>
-       
-        <p>See <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a>.</p>
+<p>
+  Definition: 
+</p>
+        <p>
+          
+          See <a href="http://faculty.chicagobooth.edu/eric.budish/research/Budish-Che-Kojima-Milgrom-2013-AER.pdf">Budish, Che, Kojima, and Milgrom 2013</a>.</p>
 
 <h2 id="API">API</h2>
         
